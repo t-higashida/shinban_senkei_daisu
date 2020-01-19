@@ -1,0 +1,273 @@
+\section{行列式の基本性質}
+
+\subsection{行列式の定義}
+
+\subsection{多重1次性と交代性}
+さらに行列式の性質を調べよう．
+
+\定理{2.2.2}
+\begin{list}{}{}
+\item	(1)
+$n$次行列のある列【行】ベクトルが2つの$n$項たて【よこ】
+ベクトルの和であれば，その行列式は各たて【よこ】ベクトルを
+もとの位置においた2つの行列の行列式の和に等しい．たとえば，
+第$j$列について，
+\begin{align*}
+	&\begin{vmatrix}
+		a_{11} & \cdots & a_{1j-1} & a_{1j} + a'_{1j} & a_{1j+1} & \cdots & a_{1n} \\
+		a_{21} & \cdots & a_{2j-1} & a_{2j} + a'_{2j} & a_{1j+1} & \cdots & a_{2n} \\
+    \vdots &        & \vdots   & \vdots           & \vdots   &        & \vdots \\
+		a_{n1} & \cdots & a_{nj-1} & a_{nj} + a'_{nj} & a_{nj+1} & \cdots & a_{nn}
+	\end{vmatrix} \\
+  &=
+	\begin{vmatrix}
+		a_{11} & \cdots & a_{1j-1} & a_{1j} & a_{1j+1} & \cdots & a_{1n} \\
+		a_{21} & \cdots & a_{2j-1} & a_{2j} & a_{1j+1} & \cdots & a_{2n} \\
+    \vdots &        & \vdots   & \vdots &          & \vdots & \vdots \\
+		a_{n1} & \cdots & a_{nj-1} & a_{nj} & a_{nj+1} & \cdots & a_{nn}
+	\end{vmatrix}
+  +
+	\begin{vmatrix}
+		a_{11} & \cdots & a_{1j-1} & a'_{1j} & a_{1j+1} & \cdots & a_{1n} \\
+		a_{21} & \cdots & a_{2j-1} & a'_{2j} & a_{1j+1} & \cdots & a_{2n} \\
+    \vdots &        & \vdots   & \vdots  &          & \vdots & \vdots \\
+		a_{n1} & \cdots & a_{nj-1} & a'_{nj} & a_{nj+1} & \cdots & a_{nn}
+	\end{vmatrix}
+\end{align*}
+\item (2) $n$次行列のある列【行】ベクトルを$\alpha$倍すると
+($\alpha$はスカラー），その行列式が$\alpha$倍される．たとえば，
+第$j$列について，
+\begin{align*}
+	\begin{vmatrix}
+		a_{11} & \cdots & a_{1j-1} & \alpha a_{1j} & a_{1j+1} & \cdots & a_{1n} \\
+		a_{21} & \cdots & a_{2j-1} & \alpha a_{2j} & a_{1j+1} & \cdots & a_{2n} \\
+    \vdots &        & \vdots   & \vdots &          & \vdots & \vdots \\
+		a_{n1} & \cdots & a_{nj-1} & \alpha a_{nj} & a_{nj+1} & \cdots & a_{nn}
+	\end{vmatrix}
+  =
+  \alpha
+	\begin{vmatrix}
+		a_{11} & \cdots & a_{1j-1} & a_{1j} & a_{1j+1} & \cdots & a_{1n} \\
+		a_{21} & \cdots & a_{2j-1} & a_{2j} & a_{1j+1} & \cdots & a_{2n} \\
+    \vdots &        & \vdots   & \vdots  &          & \vdots & \vdots \\
+		a_{n1} & \cdots & a_{nj-1} & a_{nj} & a_{nj+1} & \cdots & a_{nn}
+	\end{vmatrix}
+\end{align*}
+\end{list}
+
+（保留）
+
+\系{2.2.3}
+$n$次行列のある列【行】ベクトルが，いくつかの$n$項たて【よこ】
+ベクトルの1次結合であれば，その行列式も1次結合になる．たとえば，
+$A = [\boldsymbol{a}_1 \boldsymbol{a}_2 \cdots \boldsymbol{a}_n]$
+の第$j$列ベクトルが
+\[
+	\boldsymbol{a}_j =   \alpha_1 \boldsymbol{a}_j^{(1)}
+	                   + \alpha_2 \boldsymbol{a}_j^{(2)}
+                     + \cdots
+	                   + \alpha_r \boldsymbol{a}_j^{(r)}
+                   = \sum_{k=1}^r \alpha_k \boldsymbol{a}_j^{(k)}
+ \qquad ( \boldsymbol{a}_j^{(k)} \in K^n)
+\]
+ならば，
+\begin{align*}
+	\det (A) &= \det ( \boldsymbol{a}_1, 
+                    \cdots, 
+                    \boldsymbol{a}_{j-1},
+                    \sum_{k=1}^r \alpha_k \boldsymbol{a}_j^{(k)},
+                    \boldsymbol{a}_{j+1},
+                    \cdots,
+                    \boldsymbol{a}_n
+                  ) \\
+           &= \sum_{k=1}^r \alpha_k \cdot
+             \det ( \boldsymbol{a}_1, 
+                    \cdots, 
+                    \boldsymbol{a}_{j-1},
+                    \boldsymbol{a}_j^{(k)},
+                    \boldsymbol{a}_{j+1},
+                    \cdots,
+                    \boldsymbol{a}_n
+                  )
+\end{align*}
+
+（保留）
+
+
+\subsection{積の行列式}
+
+2つの正方行列の積の行列について，次の大切な定理が成立つ．
+
+\定理{2.2.10}
+2つの$n$次行列$A,B$の積$AB$の行列式はそれぞれの行列式の積に等しい．
+すなわち，$\det (AB) = \det (A) \det (B)$．
+
+\証明
+まず，$n=2$，$2$次正方行列，場合を証明しよう．
+$\displaystyle 
+ A= \begin{pmatrix}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22}
+		\end{pmatrix}
+$，
+$\displaystyle 
+ B= \begin{pmatrix}
+      b_{11} & b_{12} \\
+      b_{21} & b_{22}
+		\end{pmatrix}
+$とし，さらに
+$c_1=a_{11}b_{12} + a_{12}b_{22},
+ c_2=a_{21}b_{12} + a_{22}b_{22}$とおく．
+$AB=\begin{pmatrix}
+		  a_{11} b_{11} + a_{12}b_{21} & c_1 \\
+		  a_{21} b_{11} + a_{22}b_{21} & c_2
+		\end{pmatrix}
+$
+ゆえに，行列式の性質（各列に関する線形性）より，
+\begin{align*}
+ \det (AB) &= \begin{vmatrix}
+		          a_{11} b_{11} + a_{12}b_{21} & c_1 \\
+		          a_{21} b_{11} + a_{22}b_{21} & c_2
+						 \end{vmatrix}\\
+           &= b_{11} \begin{vmatrix}
+		                    a_{11} & c_1 \\
+                        a_{21} & c_2
+											\end{vmatrix}
+            + b_{21} \begin{vmatrix}
+		                    a_{12} & c_1 \\
+                        a_{22} & c_2
+											\end{vmatrix} \\
+           &= b_{11} \begin{vmatrix}
+		                    a_{11} & a_{11}b_{12} + a_{12}b_{22} \\
+                        a_{21} & a_{21}b_{12} + a_{22}b_{22}
+											\end{vmatrix}
+            + b_{21} \begin{vmatrix}
+		                    a_{12} & a_{11}b_{12} + a_{12}b_{22} \\
+                        a_{22} & a_{21}b_{12} + a_{22}b_{22}
+											\end{vmatrix} \\
+           &= b_{11} b_{12}
+                      \begin{vmatrix}
+		                    a_{11} & a_{11}\\
+                        a_{21} & a_{21}
+											\end{vmatrix}
+            + b_{11}b_{22}
+                      \begin{vmatrix}
+		                    a_{11} & a_{12} \\
+                        a_{21} & a_{22}
+											\end{vmatrix} \\
+           & + b_{21}b_{12}
+                      \begin{vmatrix}
+		                    a_{12} & a_{11}\\
+                        a_{22} & a_{21}
+											\end{vmatrix}
+             - b_{21}b_{22}
+                      \begin{vmatrix}
+		                    a_{12} & a_{12}\\
+                        a_{22} & a_{22}
+											\end{vmatrix} \\
+\end{align*}
+最後の式の第1項と第4項の行列式は，二つの列が一致しているので，ともに
+$0$である．第3項の行列式の2つの列を交換すると，その符号が変わり，
+結局
+\begin{align*}
+	\det (AB) &= b_{11} b_{21}
+              \begin{vmatrix}
+                a_{11} & a_{12} \\
+                a_{21} & a_{22}
+						  \end{vmatrix}
+            - b_{21} b_{12}
+              \begin{vmatrix}
+                a_{11} & a_{12} \\
+                a_{21} & a_{22}
+						  \end{vmatrix} \\
+           &= (b_{21}b_{12} - b_{21}b_{22})
+                      \begin{vmatrix}
+		                    a_{12} & a_{12}\\
+                        a_{22} & a_{22}
+											\end{vmatrix} \\
+           &= \det B \det A
+\end{align*}
+
+
+$A=[\boldsymbol{a}_1 \boldsymbol{a}_2 \cdots \boldsymbol{a}_n ],
+ B=[b_{jk}]$
+のとき，命題1.2.8によって
+\[
+  AB = \left[ \sum_{j_1=1}^n b_{{j_1}1} \boldsymbol{a}_{j_1} \:
+              \sum_{j_2=1}^n b_{{j_2}1} \boldsymbol{a}_{j_2} \:
+              \cdots \:
+              \sum_{j_n=1}^n b_{{j_n}1} \boldsymbol{a}_{j_n}
+       \right]
+\]
+であるから，系2.2.3を繰り返し用いて，
+\begin{align*}
+	\det (AB) &= \det \left( \sum_{j_1=1}^n b_{{j_1}1}	\boldsymbol{a_{j_1}},
+                           \cdots
+                           \sum_{j_n=1}^n b_{{j_n}n}	\boldsymbol{a_{j_n}},
+                   \right) \\
+            &= \det \sum_{j_1=1}^n b_{{j_1}1}
+                    \left(\boldsymbol{a_{j_1}},
+                          \sum_{j_2=1}^n b_{{j_2}1}	\boldsymbol{a_{j_2}},
+                          \cdots
+                          \sum_{j_n=1}^n b_{{j_n}n}	\boldsymbol{a_{j_n}},
+                   \right) \\
+            &= \det \sum_{j_1=1}^n b_{{j_1}1}
+                    \sum_{j_2=1}^n b_{{j_2}2}
+                    \left(\boldsymbol{a}_{j_1},
+                          \boldsymbol{a}_{j_2},
+                          \sum_{j_3=1}^n b_{{j_3}3}
+                          \boldsymbol{a}_{j_3},
+                          \cdots
+                          \sum_{j_n=1}^n b_{{j_n}n}	\boldsymbol{a}_{j_n},
+                   \right) \\
+            & = \cdots \cdots \\
+            &= \det \sum_{j_1=1}^n b_{{j_1}1}
+                    \sum_{j_2=1}^n b_{{j_2}2}
+                    \cdots \cdots
+                    \sum_{j_n=1}^n b_{{j_n}n}
+                    \left(\boldsymbol{a}_{j_1},
+                          \boldsymbol{a}_{j_2},
+                          \cdots,
+                          \boldsymbol{a}_{j_n}
+                   \right)
+\end{align*}
+この和は，$j_1,j_2, \cdots , j_n$がどれも$1$から$n$までの値をとるときの
+$n^n$個の項にわたるが，$j_1,j_2, \cdots , j_n$のうちの2つが等しいとき，
+系2.2.7 から $\det (\boldsymbol{a}_{j_1},
+                    \boldsymbol{a}_{j_2},
+                    \cdots,
+                    \boldsymbol{a}_{j_n}
+                   )
+$は$0$となるので，和からその項を消してしまうと，
+$j_1,j_2, \cdots, j_n$が相異なる項の$n!$個だけが残る．
+$j_1,j_2, \cdots j_n$が相異なるとき，$(j_1, j_2 , \cdots , j_n)$は
+$n$次順列となるから，
+\begin{align*}
+ \det (AB) &= \sum_{(j_1,j_2 , \cdots , j_n) \in S_n}
+                b_{{j_1}1} b_{{j_2}2} \cdots b_{{j_n}n}
+                \det ( \boldsymbol{a}_{j_1} ,
+                       \boldsymbol{a}_{j_2} ,
+                       \cdots
+                       \boldsymbol{a}_{j_n}
+                     ) \\
+           &= \sum_{(j_1,j_2 , \cdots , j_n) \in S_n}
+                \text{sgn } (j_1, j_2 , \cdots , j_n)
+                \det ( \boldsymbol{a}_{j_1} , 
+                       \boldsymbol{a}_{j_2} ,
+                       \cdots
+                       \boldsymbol{a}_{j_n}
+                     ) \quad \quad \text{(系2.2.6による)}\\
+           &= \det (A) \det (B)
+\end{align*}
+\■
+
+\系{2.2.11}
+$n$次行列$A$が正則であれば，$\det (A) \ne 0$であり，
+$\det (A^{-1}) = (\det (A) )^{-1}$となる．
+
+\証明
+$A A^{-1}=E$だから，定理によって
+$\det (A) \det (A^{-1}) = \det (E) =1$.
+ゆえに，$\det (A) \ne 0$かつ$ \det (A^{-1}) = (\det (A))^{-1}$.
+
+\■

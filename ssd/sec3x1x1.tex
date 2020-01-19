@@ -1,0 +1,208 @@
+\chapter{連立1次方程式と行列の階数}
+
+この章では，連立1次方程式の解放について述べよう．そのために準備する事柄
+の中には，たとえば数ベクトルの1次独立性や行列の階数のように，
+線形代数の理論の中心的役割をなすものが含まれている．
+
+\section{連立1次方程式のいろいろな表現}
+$K$の数を係数とし，$n$個の未知数$x_1,x_2,\cdots , x_n$を含む
+$m$個の1次式の組
+\[
+  (E) ; 
+        \begin{cases}
+		     a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n}x_n = b_1 \\
+		     a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n}x_n = b_2 \\
+         \cdots                                             \\
+		     a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn}x_n = b_m
+				\end{cases}
+\]
+を\textbf{連立1次方程式}という．
+\[
+	\boldsymbol{a}_j = \begin{bmatrix}
+		                   a_{1j} \\ a_{2j} \\ \cdots	\\ a_{mj}
+											\end{bmatrix},
+	\boldsymbol{b} = \begin{bmatrix}
+		                   b_{1} \\ b_{2} \\ \cdots \\ b_{m}
+											\end{bmatrix},
+	\boldsymbol{x} = \begin{bmatrix}
+		                   b_{1} \\ b_{2} \\ \cdots \\b_{m}
+											\end{bmatrix},
+  A = \begin{bmatrix}
+		     a_{ij}
+			\end{bmatrix}
+\]
+とおけば，(E)は
+\begin{align*}
+	&(E_c) : \quad   x_1 \boldsymbol{a_1}
+               + x_2 \boldsymbol{a_2}
+               + \cdots
+               + x_n \boldsymbol{a_n}
+               = \boldsymbol{b} \\
+ &\text{または}\\
+  &(E_M): \quad  A \boldsymbol{x}
+               = \boldsymbol{b}	
+\end{align*}
+と表せる.
+\footnote{
+  連立1次方程式を表現するのに，$(E),(E_c),(E_M)$の
+3つの方式を述べたが，これらをそれぞれ$(E)$型，
+$(E_c)$型，$(E_M)$型の表現ということにする．
+}
+$A$を連立1次方程式$(E)$の\textbf{係数行列}とよぶ．
+
+\問{}
+次の連立方程式を行列を用いて書き表せ．
+
+(1)
+\[
+	\begin{cases}
+		3x -y = 2 \\
+    x + 3y = 5
+	\end{cases}
+\]
+\解
+\[
+	\begin{bmatrix}
+		3 & -1 \\
+    1 & 3
+	\end{bmatrix}
+  \begin{bmatrix}
+		x  \\
+    y
+	\end{bmatrix}
+  =
+  \begin{bmatrix}
+		x \\
+    y
+	\end{bmatrix}
+\]
+(2)
+\[
+	\begin{cases}
+		4x -3y +z=1 \\
+    x + y =3 \\
+    3x -y - z = 0
+	\end{cases}
+\]
+\解
+\[
+	\begin{bmatrix}
+		4 & -3 & 1 \\
+    1 & 1  & 0 \\
+    3 & -1 & -1
+	\end{bmatrix}
+  \begin{bmatrix}
+		x \\ y \\ z
+	\end{bmatrix}
+  =
+  \begin{bmatrix}
+		1 \\ 3 \\ 0
+	\end{bmatrix}
+\]
+\■
+$(E)$の$m$個の1次式を同時に満たす$x_1,x_2,\cdots ,x_n$の値
+$c_1, c_2 , \cdots, c_n$($K$に属するもののみを考える)を
+$(E)$の\textbf{解}という．このとき
+$c_1 \boldsymbol{a}_1 +
+ c_2 \boldsymbol{a}_2 + \cdots +
+ c_n \boldsymbol{a}_n =
+     \boldsymbol{b}
+$
+また$(E)$の解を成分とするベクトル
+\[
+	\boldsymbol{c}=\begin{bmatrix}
+		               c_1 \\
+                   c_2 \\
+                   \cdots \\
+                   c_n
+									\end{bmatrix}
+\]
+を連立1次方程式$(E_M):A \boldsymbol{x} = \boldsymbol{b}$の
+\textbf{解ベクトル}という．このとき$A \boldsymbol{c} = \boldsymbol{b}$.
+
+連立方程式$(E_M):A \boldsymbol{x} = \boldsymbol{b}$において，
+とくに$A$が正則の場合について考えよう．
+\footnote{
+このとき，もちろん$m=n$である．
+}
+このとき命題1.3.4より，$(E_M)$の解ベクトル
+$\boldsymbol{c}$は$A^{-1} \boldsymbol{b}$だけである．
+系2.2.3より，
+\[
+	A^{-1}\boldsymbol{b}
+  =
+  \frac{1}{|A|}
+  \begin{bmatrix}
+		\tilde{a}_{11} & \tilde{a}_{21} & \cdots & \tilde{a}_{n1} \\
+		\tilde{a}_{12} & \tilde{a}_{22} & \cdots & \tilde{a}_{n2} \\
+    \vdots         & \vdots         &        & \vdots         \\
+		\tilde{a}_{1n} & \tilde{a}_{2n} & \cdots & \tilde{a}_{nn}
+	\end{bmatrix}
+  \begin{bmatrix}
+		\tilde{b}_{1} \\
+		\tilde{b}_{2} \\
+    \vdots         \\
+		\tilde{b}_{n}
+	\end{bmatrix}
+\]
+ゆえに，連立1次方程式$(E)$の解は，
+\begin{align*}
+	x_j &= \frac{1}{|A|} (  b_1 \tilde{a}_{1j} 
+                       + b_2 \tilde{a}_{2j} 
+                       + \cdots 
+                       + b_n \tilde{a}_{nj}) \\
+      &= \frac{1}{|A|}
+       \begin{bmatrix}
+         a_{11} & \cdots & a_{1j-1} & b_1    & a_{1j+1} & \cdots & a_{1n} \\
+         a_{21} & \cdots & a_{2j-1} & b_2    & a_{2j+1} & \cdots & a_{2n} \\
+         \vdots &        & \vdots   & \vdots & \vdots   &        & \vdots \\
+	       a_{n1} & \cdots & a_{nj-1} & b_n    & a_{nj+1} & \cdots & a_{nn}
+	     \end{bmatrix}
+\end{align*}
+後の等号が成立つことは，上の行列式を第$j$列について展開してみればわかる．
+（§2.3.1の行列式の展開定理を$b$を列とみなして適用）
+解を与える上の式を\textbf{Cramerの公式}という．
+
+（保留）
+
+
+\命題{3.1.1}
+同次連立1次方程式$(H_M) \: A \boldsymbol{x} = \boldsymbol{0}$の
+2つの解ベクトルの和およびスカラー倍は，また解ベクトルである．
+このことから，$(H_M)$のすべて解ベクトルの集合$W$は空でなく，
+次のことが成立つ：
+\begin{list}{}{}
+\item	(ⅰ) $\boldsymbol{c}_1,\boldsymbol{c}_2 \in W \Rightarrow 
+            \boldsymbol{c}_1 + \boldsymbol{c}_2 \in W$
+\item	(ⅱ) $\boldsymbol{c} \in W, \alpha \in K \Rightarrow \alpha \boldsymbol{c} \in W$
+\end{list}
+\証明
+
+（保留）
+
+
+\定義{}
+命題3.1.1における$W$を，同次連立1次方手式$(H_M)$の\textbf{解空間}
+とよぶ．
+
+　
+
+解空間$W$は，$K^n$の空でない部分集合で，数ベクトルの和およびスカラー倍
+の演算に関して閉じている（性質(ⅰ)，（ⅱ）)．ｋの解空間のように，
+$K^n$の空でない部分集合が数ベクトルの和およびスカラー倍の演算について閉じているとき，
+この部分集合を$n$項数ベクトル空間$K^n$の\textbf{部分空間}という．もちろん，
+解空間$W$は$K^n$の部分空間である．
+
+
+\命題{3.1.2}
+連立1次方程式$(E_M) : A \boldsymbol{x} = \boldsymbol{b}$の
+1つの解ベクトルを$\boldsymbol{c}_0$とし，同次連立1次方程式
+$(H_m) : A \boldsymbol{x} = \boldsymbol{0}$の解空間を$W$としよう．
+このとき，$\boldsymbol{c}_1 \in W$に対して，
+$\boldsymbol{c}_0+\boldsymbol{c}_1$は$(E_M)$の解ベクトルであり，
+$(E_M)$の解ベクトルはすべて$\boldsymbol{c}_0$と$W$のベクトルの和として
+得られる．
+
+\証明
+
+（保留）

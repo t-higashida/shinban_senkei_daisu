@@ -1,0 +1,200 @@
+\section{行列の演算}
+
+\subsection{行列の加法とスカラー乗法}
+
+\subsection{行列の乗法}
+
+（保留）
+
+$n$個の体格成分が$1$で，他の成分がすべて$0$であるような$n$次正方行列を
+$n$次の\textbf{単位行列}といい，$E_n$または次数を省いて単に$E$で表す：
+\[
+	E= \begin{bmatrix}
+		    1      & 0      & 0       & \cdots & 0 \\
+		    0      & 1      & 0       & \cdots & 0 \\
+		    0      & 0      & 1       & \cdots & 0 \\
+		    \vdots & \vdots & \ddots  & \ddots & 0 \\
+		    0      & 0      & \cdots  & 0      & 1
+			\end{bmatrix}
+\]
+たとえば，
+$E_1=[1] , \: 
+ E_2 = \begin{bmatrix}
+	        1 & 0 \\
+          0	& 1
+			 \end{bmatrix},
+           \:
+ E_3 = \begin{bmatrix}
+	        1 & 0 & 0 \\
+          0	& 1 & 0 \\
+          0	& 0 & 1 \\
+		 	\end{bmatrix}
+$.
+
+$E_n$の$(i,j)$成分はKroneckerの記号（§1.1.2）で与えられる：
+\[
+	E_n [\delta_{i,j}], \quad
+  \delta_{i,j} =  \begin{cases}
+		               \:  1 & \quad (i =   j) \\
+		               \:  0 & \quad (i \ne j)
+									\end{cases}
+\]
+単位行列は，行列の積において，スカラーの積における$1$と同じ役割をする．
+
+\命題{1.2.4}
+$(m,n)$行列$A$について，$E_m A= A = A E_n$．とくに，$A$が
+$n$次正方行列のときは，$E_nA = A = A_n$．
+
+\subsection{転置行列}
+
+\定義{}
+$(m,n)$型の行列
+\[
+	A	=	\begin{bmatrix}
+					a_{11}	&	a_{12}	&	\cdots	&	a_{1j}	&	\cdots	&	a_{1n}	\\
+					a_{21}	&	a_{22}	&	\cdots	&	a_{2j}	&	\cdots	&	a_{2n}	\\
+					\vdots	&	\vdots	&					&	\vdots	&					&	\vdots	\\
+					a_{i1}	&	a_{i2}	&	\cdots	&	a_{ij}	&	\cdots	&	a_{in}	\\
+					\vdots	&	\vdots	&					&	\vdots	&					&	\vdots	\\
+					a_{m1}	&	a_{m2}	&	\cdots	&	a_{mj}	&	\cdots	&	a_{mn}			
+			\end{bmatrix}
+\]
+の行と列を入れ替えてできる$(n,m)$型の行列を，$A$の\textbf{転置行列}とよび，$^tA$で
+表す．
+\[
+	A	=	\begin{bmatrix}
+					a_{11}	&	a_{21}	&	\cdots	&	a_{i1}	&	\cdots	&	a_{m1}	\\
+					a_{12}	&	a_{22}	&	\cdots	&	a_{i2}	&	\cdots	&	a_{m2}	\\
+					\vdots	&	\vdots	&					&	\vdots	&					&	\vdots	\\
+					a_{1j}	&	a_{2j}	&	\cdots	&	a_{ij}	&	\cdots	&	a_{mj}	\\
+					\vdots	&	\vdots	&					&	\vdots	&					&	\vdots	\\
+					a_{1b}	&	a_{2n}	&	\cdots	&	a_{in}	&	\cdots	&	a_{mn}			
+			\end{bmatrix}
+\]
+上の定義からわかるように，$A$の$(i,j)$成分が$^tA$の$(j,i)$成分である．
+したがって，$A = [a_{ij}]_{i,j}$のときには，$^tA=[a_{ji}]_{i,j}$となる．
+
+\例{2.5}
+(1) $A=	\begin{bmatrix}
+					2	&	3	\\
+					5	&	-1	\\
+					4	&	0
+				\end{bmatrix}$ならば，$^tA=\begin{bmatrix}
+																		2	&	5	&	4	\\
+																		3	&	-1&	0
+																	\end{bmatrix}
+$
+
+(2) $A=\begin{bmatrix}
+					a		&	b	&	c	&	d	\\
+					a'	&	b'	&	c'	&	d'	\\
+					a''	&	b''	&	c''	&	d''	
+				\end{bmatrix}
+$ならば，$^tA	=	\begin{bmatrix}
+									a	&	a'	&	a''	\\
+									b	&	b'	&	b''	\\
+									c	&	c'	&	c''	\\
+									d	&	d'	&	d''
+								\end{bmatrix}
+$．
+
+(3) $n$項よこベクトル$\boldsymbol{a}	=	\begin{bmatrix}
+																					a_1	&	a_2	&	\cdots	&	a_n
+																				\end{bmatrix}$と同じ成分をもつ$n$項たてベクトルは，
+転置行列の記号を用いて，
+\[
+	^t\boldsymbol{a}	=	^t\begin{bmatrix}
+													a_1	&	a_2	&	\cdots	&	a_n
+												\end{bmatrix}
+										=		\begin{bmatrix}
+													a_1	\\	a_2	\\	\vdots	\\	a_n
+												\end{bmatrix}
+\]
+とかける（たて，よこを入れ替えても同様である）．
+
+(4) 単位行列$E$については，$^tE=E$．
+
+\命題{1.2.5}
+$(m,n)$行列$A,A'$，$(n,p)$行列$B$およびスカラー$\alpha$について，
+次のことが成り立つ．
+\begin{list}{}{}
+	\item	（1）$^t(A+A') = ^tA + ^tA'$
+	\item	（2）$^t(\alpha	A) = \alpha ^tA$
+	\item	（3）$^t(AB) = ^tB ^tA$
+	\item	（4）$^t(^tA)=A$
+\end{list}
+\証明
+
+(1),(2),(4)は容易だから，(3)を示す．両辺はいずれも$(p,m)$行列である．
+$A=\begin{bmatrix}
+		a_{ij}
+		\end{bmatrix},
+B=\begin{bmatrix}
+		b_{jk}
+	\end{bmatrix}
+$とすれば
+\[
+	\{^t(AB) \text{の}	(k,i) \text{成分} \} = 
+	\{AB \text{の}	(i,k) \text{成分} \}
+	=\sum_{j=1}^n	a_{ij}b_{jk}
+\]
+また，
+\[
+	^tB^tA
+	=
+	\begin{bmatrix}
+		b_{11}	&	b_{21}	&	\cdots	&	b_{n1}	\\
+		\vdots	&	\vdots	&					&	\vdots	\\
+		b_{1k}	&	b_{2k}	&	\cdots	&	b_{nk}	\\
+		\vdots	&	\vdots	&					&	\vdots	\\
+		b_{1p}	&	b_{2p}	&	\cdots	&	b_{np}
+	\end{bmatrix}
+	\begin{bmatrix}
+		a_{11}	&	\cdots	&	a_{i1}	&	\cdots	&	a_{m1}	\\
+		a_{12}	&	\cdots	&	a_{i2}	&	\cdots	&	a_{m2}	\\
+		\vdots	&					&	\vdots	&					&	\vdots	\\
+		a_{1n}	&	\cdots	&	a_{in}	&	\cdots	&	a_{mn}
+	\end{bmatrix}
+\]
+ところが$\sum_{j=1}^{n}	b_{jk}a_{ij}	=	\sum_{j=1}^n	a_{ij}b{jk}$．
+よって，$^t(AB)	=	\: ^tB \:^tA$．
+\■
+
+\subsection{行列の区分け}
+（保留）
+
+\命題{1.2.8}
+$(m,n)$行列$A=[a_{ij}]$および$(n,p)$行列$B=[b_{jk}]$の
+行ベクトルによる区分けを，
+\[
+  A=[ \boldsymbol{a}_1 \: 
+      \boldsymbol{a}_2 \:
+      \cdots
+      \boldsymbol{a}_n \:      
+    ],
+    \quad
+  A=[ \boldsymbol{b}_1 \: 
+      \boldsymbol{b}_2 \:
+      \cdots
+      \boldsymbol{b}_p \:      
+    ]
+\]
+とすれば，積$AB$の列ベクトルの区分けは次のようになる．
+\[
+  AB = [
+         A \boldsymbol{b}_1 \:
+         A \boldsymbol{b}_2 \:
+         \cdots
+         A \boldsymbol{b}_p
+       ]
+    =  \left[ \:
+         \sum_{j=1}^n b_{j1} \boldsymbol{a}_j \:
+         \sum_{j=1}^n b_{j2} \boldsymbol{a}_j \:
+         \cdots
+         \sum_{j=1}^n b_{jp} \boldsymbol{a}_j \:
+       \right]
+\]
+
+\証明
+
+前半は，命題1.2.6の(2)より示される．

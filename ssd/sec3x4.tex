@@ -1,0 +1,85 @@
+\section{行列の階数}
+
+この節では，行列の階数と呼ばれる大切な量を定義する．
+そのため，3.2の議論をもう少し続けよう．
+
+ベクトル系が1次従属であっても，その部分系には
+1次独立なものもある(例えば，$\boldsymbol{0}$でない
+1つのベクトルは1次独立である）．そこで，ベクトル系
+の1次独立な部分系でなるべく多くのベクトルを含むものに
+注目しよう．
+
+ベクトル系
+$\boldsymbol{v}_1,\boldsymbol{v}_2, \cdots , \boldsymbol{v}_r$
+の1次独立な部分系のベクトルの最大個数(簡単にいえば，
+$\boldsymbol{v}_1 , \boldsymbol{v}_2 , \cdots , \boldsymbol{v}_r$
+のうちで1次独立なものの最大個数)をしばらく 
+\[
+	\rho(
+   \boldsymbol{v}_1 , \boldsymbol{v}_2 , \cdots , \boldsymbol{v}_r
+  )
+\]
+で示すことにする．ただし，
+$\boldsymbol{v}_1 = \boldsymbol{v}_2 = \cdots = \boldsymbol{v}_r=
+\boldsymbol{0}$のときに限って1次独立な部分系はないから，このときは
+$\rho ( \boldsymbol{v}_1 , \boldsymbol{v}_2 , \cdots , \boldsymbol{v}_r) =0$
+とする．
+
+また，ベクトル系
+\[
+	\cal{V} : \boldsymbol{v}_1 , \boldsymbol{v}_2 , \cdots , \boldsymbol{v}_r
+\]
+の部分系
+\[
+	\cal{V}' : \boldsymbol{v}_{i_1} , \boldsymbol{v}_{i_2} , \cdots , \boldsymbol{v}_{i_s}
+  \quad ( 1 \leqq i_1 < i_2 < \cdots < i_s \leqq r) 
+\]
+があって，次の2つの条件を満たすとき，$\cal{V}'$を$\cal{V}$の
+\textbf{極大独立系}とよぶ」
+\begin{list}{}{}
+\item	(ⅰ) $\cal{V}'$は1次独立である．
+\item (ⅱ) $\cal{V}$のどのベクトル$\boldsymbol{v}_i \: (j=1,2, \cdots , r)$も
+$\cal{V}'$の1次結合である．
+\end{list}
+
+
+（保留）
+
+\定理{3.4.6}
+$(m,n)$行列$A$について，
+\[
+	\rho(A) = \rho'(A)
+\]
+\証明
+
+（保留）
+
+\定義{}
+$(m,n)$行列$A$に対して，等しい値$\rho (A) = \rho'(A)$を行列$A$の
+\textbf{階数}とよび，$\rank A$で表す．
+
+すなわち，$\rank A = \rho (A) = \rho'(A)$だから，
+$A$の階数は，$A$の列ベクトル系の極大独立系のベクトルの個数を表す．
+また，行ベクトル系の極大ベクトルの個数でもある．一般には
+$\rank A \leqq \min (m,n)$であり，$A$が零行列のときに
+限って，$\rank A = 0$となる．
+
+\定理{3.4.8}
+
+$n$次行列$A$について，次の条件は同値である．
+\begin{list}{}{}
+\item	(ⅰ) $A$は正則である．
+\item	(ⅱ) $\rank A =n$
+\item	(ⅲ) $A$の列ベクトル系が1次独立である．
+\item	(ⅳ) $A$の行ベクトル系が1次独立である．
+\item	(ⅴ) $A$は有限個の基本行列の積である．
+\end{list}
+
+\証明
+（保留）
+
+\命題{3.4.9}
+$(m,n)$行列$A$の$0$でない小行列式の次数の最大値を
+$d(A)$で表せば，$d(A)$は$A$の階数に等しい．
+すなわち，$d(A)= \rank A$.
+

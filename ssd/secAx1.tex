@@ -1,0 +1,191 @@
+\chapter{付録　複素数と代数方程式}
+
+本文では，複素数全体の集合$\C$において四則演算が可能である（すなわち，$\C$が数体をなす）
+ことを既知とした．ここでこれについて説明し，あわせて高校数学で学ばなかった複素数の大切な性質を述べる．
+なお，実数のいろいろの性質は既知とする．
+
+
+\section{複素数体}
+
+§1.1.2で述べたように，すべての有理数の集合$\Q$およびすべての実数の集合$\R$においては，
+四則演算が可能である．これを正確にいうと，$\Q$または$\R$のどちらかを$\K$で表わすとき，
+$\K$において，次のことが成り立つ．
+\begin{list}{}{}
+	\item	（１）
+				\begin{list}{}{}
+					\item	（ⅰ）$\alpha$，$\beta	\in	\K$ならば，それらの和$\alpha+\beta$が$\K$の数として
+											ただ１つ定まる．
+					\item	（ⅱ）$(\alpha+\beta)+\gamma=\alpha+(\beta+\gamma)	\quad	\text{(結合法則)}$
+					\item	（ⅲ）$\alpha+\beta=\beta+\alpha	\quad	\text{（交換法則）}$
+					\item	（ⅳ）$\K$の特別な数$0$が（ただ１つ）存在し，$\K$の任意の数$\alpha$に対して，
+											$0+\alpha=\alpha+0=\alpha$．
+					\item	（ⅴ）$\K$の任意の数$\alpha$に対して，$-\alpha$でで示される$\K$の数が（ただ１つ）
+											存在し，$(-\alpha)+\alpha=\alpha+(-\alpha)=0$．
+					\item	（ⅵ）$\alpha+\beta	\in	\K$ならば，$z+\alpha=\beta$を満たす$\K$の数$z$が（ただ１つ）
+											存在し，$z=\beta+(-\alpha)$．
+				\end{list}
+	\item	（２）
+				\begin{list}{}{}
+					\item	（ⅰ）$\alpha$，$\beta	\in	\K$ならば，それらの積$\alpha\beta$が$\K$の数としてつねに
+											ただ１つ定まる（乗法の可能性）．
+					\item	（ⅱ）$(\alpha\beta)\gamma=\alpha(\beta\gamma)$（結合法則）
+					\item	（ⅲ）$\alpha\beta=\beta\alpha$（交換法則）
+					\item	（ⅳ）$\K$の特別な数$1$が（ただ１つ）存在し，$\K$の任意の数$\alpha$に対して，
+											$1\alpha=\alpha1=\alpha$．
+					\item	（ⅴ）$\K$の$0$以外の任意の数$\alpha$に対し，$\alpha^{-1}$
+											$\left(\text{または}\displaystyle	\frac{1}{\alpha}\right)$で示される$\K$の数が（ただ１つ）存在し，
+											$\alpha^{-1}\alpha=\alpha\alpha^{-1}=1$．
+					\item	（ⅵ）$\alpha,\beta	\in	\K,	\alpha	\ne	0$ならば，$z\alpha=\beta$を満たす$\K$の数$z$が
+											（ただ１つ）存在し，$z=\beta\alpha^{-1}$．
+				\end{list}
+	\item	（３）$\alpha(\beta+\gamma)=\alpha\beta+\alpha\gamma,(\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma
+							\quad	\text{（分配法則）}$
+\end{list}
+以上のうちで，（１），（２）における（ⅵ）はそれぞれの（ⅳ），（ⅴ）から導かれ，加法，乗法の逆演算
+（減法，除法）の可能性を示すものである．ふつうに用いる数の演算法則はこれらをもとに示され，たとえば次のことも
+成り立つ．
+\begin{list}{}{}
+	\item	（４）$0\alpha=\alpha0=0$
+	\item	（５）$\alpha\beta=0$ならば，$\alpha=0$，または$\beta=0$
+\end{list}
+このような意味で$\Q$，$\R$をそれぞれ\textbf{有理数体}，\textbf{実数体}というのであった．
+
+{	\small
+\注意{}
+数体は$\Q$，$\R$（およびこれから述べる$\C$）以外にも多くある．
+たとえば，$\K=\{a+b\sqrt{2}	\:|\:	a,b	\in	\Q	\}$とすれば，$K$においても上の（１）～（３）が成り立つ．
+
+}
+さて，本文の第３章で述べるように，１次方程式は多元連立のものであっても，原理的には四則演算を
+繰り返して解の状態を明らかにすることができる．しかし，たとえば実係数２次方程式$x^2+1=0$は
+次数の範囲では解をもたない，そこで高次の方程式が解けるように，数の範囲を拡張する．
+
+いま$i^2=-1$となるような新しい数$i$を考えて，これを\textbf{虚数単位}という．
+また，
+\[
+	a+bi	\quad	(a,b	\in	\R)
+\]
+の形の数を考えて，これを\textbf{複素数}とよぶ．ここで複素数の符号$a+bi=a'+b'i$は，
+$a=a'$かつ$b=b'$なることとする（$a,b,a',b'	\in	\R$）．とくに，$b=0$のとき，
+$a+0i=a$とみなし，これを実数$a$と同一視しよう．このとき，$a+bi	\ne	0$は，
+$a	\ne	0$または$b	\ne	0$，すなわち$a^2+b^2	\ne	0$と同値であることに注意する．
+さらに複素数の\textbf{和}と\textbf{積}を次のように定義する：
+\begin{align*}
+	&	(a+bi)+(a'+b'i)	=(a+a')+(b+b')i	\\
+	&	(a+bi)(a'+b'i)	=(aa'-bb')+(ab'+ba')i	\\
+\end{align*}
+とくに，$b=b'=0$のとき，これらが実数の和と積に一致することに注意しよう．
+
+\命題{1.1}
+すべての複素数の集合を$\K$で示すとき，この$K$においても前記の
+（１）,（２）,（３）が成り立つ．
+
+\証明
+（２）の（ⅴ）だけを示す．$\alpha=a+bi$，$z=x+yi$（$a,b,x,y	\in	\R$）に対して，
+$az=1$は，$ax-by=1$，$ay+bx=0$と同値であるから，$\alpha	\ne	0$のとき，
+$a^2+b^2	\ne	0$に注意すれば，$\displaystyle	x=\frac{a}{a^2+b^2}	,\:y=\frac{-b}{a^2+b^2}$
+がただ１組の解として得られる．
+
+\問{1.1}命題1.1において，残りの法則を確かめよ．
+
+\解
+（保留）
+
+\■
+
+これで複素数全体の集合が数体をなすことがわかったから，これを\textbf{複素数体}
+とよび，$\C$で表す．
+
+なお，複素数については，実数のような大小関係（ふつうの不等式の性質をもつもの）を定めることはできない．
+
+\textbf{付記}
+　上のような複素数の定義では，$i$の導入などにあいまいさが残る．
+もっと正確な定義は次のようにする．すなわち，２つの実数の順序のついた組$(a,b)$を複素数と定義し，
+複素数の和，積を
+\[
+	(a,b)+(a',b')=(a+a',b+b'),	\quad	(a,b)\cdot(a',b')=(aa'-bb',ab'+ba')
+\]
+と定める．この定義によっても，命題1.1が正しいことが同様に確かめられ，とくに
+$(a,0)	\;	(a	\in	\R)$の形の複素数が実数$a$と（演算もふくめて）同一視されることがわかる．
+そこでとくに，$i=(0,1)$とおけば，
+\[
+	i^2=(-1,0)=-1,	\quad	bi=(b,0)\cdot(0,1)=(0,b)	\quad	(b	\in	\R)
+\]
+となり，任意の複素数は
+\[
+	(a,b)=(a,0)+(0,b)=a+bi
+\]
+と表わされる．なお，$-i=(0,-1)$についても$(-i)^2=-1$となるが，$i$と$-i$は明確に区別される．
+
+さて，複素数$\alpha=a+bi	\:(a,b	\in	\R)$に対し，$a$を$\alpha$の\textbf{実部}，
+$b$を$\alpha$を\textbf{虚部}といい，それぞれ$\real(\alpha)$，$\image(\alpha)$
+で表わす．よって，
+\[
+	a=\real(\alpha),	b=\image(\alpha),	\alpha=\real(\alpha)+\image(\alpha)i
+\]
+とくに実部が$0$であるような（実数でない）複素数$bi	\:	(b	\in	\R,b	\ne	0)$を
+\textbf{準虚数}という．また，上の複素数$\alpha$の虚部の符号をかえたものを$\alpha$の
+\textbf{共役複素数}とよび，$\overline{\alpha}$で示す．したがって，
+\[
+	\overline{\alpha}=a-bi,\quad
+	\real(\overline{\alpha})=\real(\alpha),\quad
+	\image(\overline{\alpha})=-\image(\alpha)
+\]
+さらに，上記の$\alpha$に対して
+\[
+	|\alpha|=\sqrt{a^2+b^2}
+\]
+と定め，これを$\alpha$の\textbf{絶対値}という．$|\alpha|$は負でない実数であり，とくに$\alpha$が
+実数であるとき，これはふつうの実数の絶対値に一致する．
+
+\命題{1.2}
+複素数$\alpha,\beta$について，次のことが成り立つ．
+\begin{align*}
+	\text{(1)　}	&\alpha+\overline{\alpha}=2\real(\alpha)	
+	&\text{(2)　}	&\alpha\overline{\alpha}=|\alpha|^2=|\alpha|^2	&\\
+	\text{(3)　}	&|\alpha|=0	\Longleftrightarrow	\alpha=0
+	&\text{(4)　}	&|\alpha	\pm	\beta|	\leqq	|\alpha|+|\beta|	&\\	
+	\text{(5)　}	&|\alpha\beta|=|\alpha||\beta|
+	&\text{(6)　}	&\overline{\overline{\alpha}}=\alpha	&\\	
+	\text{(7)　}	&\alpha=\overline{\alpha}	\Longleftrightarrow	\alpha	\in	\R
+	&\text{(8)　}	&\overline{\alpha	\pm	\beta}=\overline{\alpha}\pm\overline{\beta}	\quad	\text{（複号同順）}	&\\
+	\text{(9)　}	&\overline{\alpha\beta}=\overline{\alpha}\overline{\beta}
+	&\text{(10)　}&\overline{\alpha^{-1}}=(\overline{\alpha})^{-1}	\quad(\alpha	\ne	0)
+\end{align*}
+
+\証明
+$\alpha=a+bi$，$\beta=a'+b'	\quad	(a,b,a',b'	\in	\R)$としておく．
+
+(2)$\alpha\overline{\alpha}=(a+bi)(a-bi)=a^2+b^2=|a|^2=|\overline{\alpha}|^2$
+
+(4)両辺とも負でない実数だから，平方して比較すると，
+\begin{align*}
+	&|\alpha	\pm	\beta|^2	=	(a	\pm	a')^2+(b	\pm	b')^2=a^2+{a'}^2+b^2+{b'}^2	\pm	2(aa'	+	bb')	\\
+	&(|\alpha|	+	|\beta|)^2=a^2+b^2+2\sqrt{a^2+b^2}\sqrt{{a'}^2+{b'}^2}+{a'}^2+{b'}^2
+\end{align*}
+ここで，$\pm	2	(aa'+bb')	\leqq	|aa'+bb'|	\leqq	\sqrt{a^2+b^2}\sqrt{{a'}^2+{b'}^2}$であることは，
+さらに両辺を平方して確かめられる．
+
+(8)$\overline{\alpha	\pm	\beta}=(a	\pm	a')-(b	\pm	b')i	
+																=(a-bi)\pm(a'-b'i)=\overline{\alpha}\pm\overline{\beta}$
+
+(9$)\overline{\alpha\beta}=(aa'-bb')-(ab'+ba')i=(a-bi)(a'-b'i)=\overline{\alpha}\overline{\beta}$
+
+\問{1.2}命題1.3の(1)，(3)，(5)～(7)，(10)を確かめよ．
+
+\解
+
+（保留）
+
+命題1.2の(8)～(10)から，一般に複素数の四則と共役複素数をとることは，その順序をかえてよい．
+たとえば，
+\begin{align*}
+	&	\overline{\alpha_1+\alpha_2+\cdots	+	\alpha_r}=
+		\overline{\alpha_1}+\overline{\alpha_2}+\cdots	+	\overline{\alpha_r}	\\
+	&	\overline{\alpha_1\alpha_2\cdots\alpha_r}=
+		\overline{\alpha_1}\overline{\alpha_2}\cdots\overline{\alpha_r}	\\
+	&	\overline{(\alpha_1+\alpha_2+\cdots	+	\alpha_r)\beta}=
+		\overline{\alpha_1}\overline{\beta}+\overline{\alpha_2}\overline{\beta}+\cdots+\overline{\alpha_r}\overline{\beta}	\\
+\end{align*}
+などが成り立つ．
+

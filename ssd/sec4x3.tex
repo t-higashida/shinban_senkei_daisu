@@ -1,0 +1,126 @@
+\section{ユニタリ行列}
+
+\subsection{ユニタリ行列と直交行列}
+
+ここで，内積に関連して大切な行列を考える．
+
+\定義{}
+$(m,n)$型の複素行列
+\[
+	A = \begin{bmatrix}
+		   \: a_{11} & a_{12} & \cdots & a_{1n} \: \\
+		   \: a_{21} & a_{22} & \cdots & a_{2n} \: \\
+        \vdots & \vdots &        & \vdots \\
+		   \: a_{m1} & a_{m2} & \cdots & a_{mn} \:
+			\end{bmatrix}
+\]
+について，$(n,m)$型の行列
+\[
+	A = \begin{bmatrix}
+		    \: \overline{a_{11}} & \overline{a_{21}} & \cdots & \overline{a_{m1}} \: \\
+		    \: \overline{a_{12}} & \overline{a_{22}} & \cdots & \overline{a_{m2}} \: \\
+        \vdots & \vdots &        & \vdots \\
+		    \: \overline{a_{1n}} & \overline{a_{2n}} & \cdots & \overline{a_{mn}} \:
+			\end{bmatrix}
+    = \tr{\overline{A}}
+\]
+を$A$の（複素）\textbf{随伴行列（共役転置行列）}といい，$A^*$で表す．
+
+\例{3.1}
+
+（保留）
+
+\命題{4.3.1}
+$(m,n)$型の複素行列$A,A', (n,p)$型の複素行列$B$および複素数$\alpha$について，
+\begin{list}{}{}
+	\item	(1) $(A + A')^* = A^* + (A')^*$
+	\item (2) $\alpha A)^* = \overline{\alpha} A^*$
+	\item (3) $(AB)^* = B^* A^*$
+	\item (4) $(A^*)^* =A$
+	\item (5) $A^* = \tr{A} \Leftrightarrow A \text{は実行列}$
+\end{list}
+
+\問{3.1}
+命題4.3.1を確かめよ．
+（保留）
+
+
+正方行列$A$とその随伴行列$A^*$は，ベクトルの内積によって次のように関係づけられる．
+
+\命題{4.3.2}
+$K$の上の$n$次正方行列【$m	\times n$行列】$A$と$K^n$の任意のベクトル$\boldsymbol{x},\boldsymbol{y}$について
+\begin{list}{}{}
+	\item	(1) $(A \boldsymbol{x} \cdot \boldsymbol{y}) = (\boldsymbol{x} \cdot A^* \boldsymbol{y})$
+	\item (2) $(\boldsymbol{x} \cdot A \boldsymbol{y}) = (A^* \boldsymbol{x} \cdot \boldsymbol{y})$
+\end{list}
+\footnote{
+\small 
+$K=\R$のときには，$(A\boldsymbol{x} \cdot \boldsymbol{y}) = (\boldsymbol{x} \cdot \tr{A} \boldsymbol{y})$,
+$(\boldsymbol{x} \cdot A \boldsymbol{y}) = (\tr{A} \boldsymbol{x} \cdot \boldsymbol{y})$
+}
+\証明
+(1) 
+\begin{align*}
+	(A \boldsymbol{x}	\cdot	\boldsymbol{y})	
+&	=	^t(A\boldsymbol{x}) \overline{\boldsymbol{y}}
+	=	^t\boldsymbol{x}	^tA	\overline{\boldsymbol{y}}	\\
+&	=	^t\boldsymbol{x}	\overline{A}^* 	\overline{\boldsymbol{y}}
+	=	^t\boldsymbol{x}	\overline{A^*	\boldsymbol{y}}
+	=	(\boldsymbol{x}	\cdot	A^*	\boldsymbol{y})
+\end{align*}
+（保留）
+
+\定理{4.3.3}
+$n$次複素行列$A$について，次の5つの条件は互いに同値である：
+\begin{list}{}{}
+	\item	(ⅰ) $A$は正則であって，$A^{-1} = A^*$ 
+	\item (ⅱ) $\tr{A} \overline{A} = E_n$
+	\item (ⅲ) $\overline{A} \cdot \tr{A} = E_n$
+	\item (ⅳ) $A$の$n$個の列ベクトルは，$C^n$の正規直交系をなす．
+	\item (ⅴ) $A$の$n$個の行ベクトルは，$C_*^n$の正規直交系をなす．
+\end{list}
+
+（保留)
+
+\定義{}
+$n$次複素正則行列$A$が定理4.3.3の同値な条件をみたすとき，$A$を
+\textbf{ユニタリ行列}とよぶ．
+	
+とくに実行列の場合，定理4.3.3は次のようになる．
+
+\系{4.3.3'}
+$n$次実行列$A$について，次の5つの条件は互いに同値である：
+\begin{list}{}{}
+	\item	(ⅰ) $A$は正則であって，$A^{-1} = \tr{A}$
+	\item (ⅱ) $\tr {A} \cdot A = E_n$
+	\item (ⅲ) $A \cdot \tr {A} = E_n$
+	\item (ⅳ) $A$の$n$個の列ベクトルは，$R^n$の正規直交系をなす． 
+	\item (ⅴ) $A$の$n$個の行ベクトルは，$R^n_*$の正規直交系をなす．
+\end{list}
+
+\定義{}
+$n$次実正方行列$A$が系4.3.3'の同値な条件をみたすとき，$A$を\textbf{直交行列}という．
+
+直交行列はもちろんユニタリ行列である．
+
+（保留）
+
+ユニタリ【直交】行列$A$はそれが定める$\C^n$【$\R^n$】の1次変換$L_A$
+（§1.4参照）が内積（したがってベクトルの長さ）を保存するという性質によっても
+特徴付けられる．
+
+\定理{4.3.5}
+$K$の上の$n$次正方行列$A$について，次の3つの条件は互いに同値である：
+\begin{list}{}{}
+	\item	(ⅰ) $A$はユニタリ行列である．
+	\item (ⅱ) $K^n$の任意のベクトル$\boldsymbol{x},\boldsymbol{y}$について，$(\boldsymbol{x}, \boldsymbol{y})= (A \boldsymbol{x}, A \boldsymbol{y})$.
+	\item (ⅲ) $K^n$の任意のベクトル$\boldsymbol{x}$について，$||\boldsymbol{x}|| = || A \boldsymbol{x}||$.
+\end{list}
+
+\証明
+（保留）
+\■
+
+なお，上のように$K^n$の内積（したがってベクトルの長さ）を変えない1次変換を，
+$K^n$の\textbf{ユニタリ変換}（$K=\R$の場合は\textbf{直交変換}）という．
+

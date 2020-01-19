@@ -1,0 +1,172 @@
+\chapter{平面と空間のベクトル}
+
+最初に，高校で学んだ平面と空間のベクトルについて，簡単に振り返っておく．
+
+平面または空間の（幾何）ベクトルとは，向きと大きさをもった量を有向線分
+で表したものである．ただし，むきと大きさの等しい（平行移動で同じ向きも含めて
+重なり合う）有向線分は，同じ量を表す．
+
+このようなベクトルの定義を，より明確なものにしよう．
+
+\定義{}
+空でない集合$X$の任意の2要素$x$，$y$の間に，ある関係$x	\sim	y$が
+成り立つか否かが定まり，つぎの3条件が満たされているとき，この関係
+$\sim$を\textbf{同値関係}という．
+\begin{list}{}{}
+	\item	（ⅰ）\textbf{（反射法則）}$x	\sim	x$.
+	\item	（ⅱ）\textbf{（対称法則）}$x	\sim	$ならば$y	\sim	x$
+	\item	（ⅲ）\textbf{（推移法則）}$x	\sim	y,	y	\sim	z$ならば$x	\sim	z$
+\end{list}
+
+\命題{0.1.1}
+$\sim$を空でない集合$X$の同値関係，$a$を$X$の要素とするとき
+\[
+	C_a	=	\{	x	\in	X	\:	|	\:	x	\sim	a	\}
+\]
+を，$a$を含む\textbf{同値類}という．2つの同値類$C_a$，$C_b$に対して，$C_a	=	C_b$であるには，
+$C_a	\cap	C_b$が空集合でないことが必要かつ十分である．
+
+\証明
+必要性は明らかであるから，十分性を示す．
+$C_a	\cap	C_b	\ni	c$とすれば，$c	\sim	b$．よって対称法則より，
+$b	\sim	c$．これと$c	\sim	a$に推移法則を用いると，
+$b	\sim	a$.	$	x	\in	C_b$なるとき，$x	\sim	b$と$b	\sim	a$に推移法則を
+用いて，$x	\sim	a$．よって，$x	\in	C_a$．すなわち，$C_a	\supset	C_b$．
+同様にして$C_a	\subset	C_a	\subset	C_b$も成り立つから，
+$C_a	=	C_b$．
+\■
+
+この命題からわかるように，空でない集合$X$に同値関係$	\sim$が与えられると，
+$X$は互いに共通部分のないいくつかの部分集合（同値類）に分けられる．
+
+平面を$E^2$，空間を$E^3$で表し，$P,Q,P_1,	Q_1,	\cdots	$を
+$E^2$または$E^3$の点とする．$E^2$または$E^3$の線分で，
+$P$を始点，$Q$を終点とする有向線分を$\overrightarrow{PQ}$で表す．
+
+\命題{0.1.2}
+$E^2$または$E^3$の2つの有向線分$\overrightarrow{P_1Q_1}$と$\overrightarrow{P_2Q_2}$が，
+平行移動で向きも含めて重なりあうとき，$\overrightarrow{P_1Q_1}	\sim	\overrightarrow{P_2Q_2}$
+と定めると，この関係は$\sim$は同値関係である．
+
+\証明（ⅰ）と（ⅱ）は，定義より明らかである．（ⅲ）は，１つの直線に平行な２直線は
+互いに平行であることと，平行移動により長さは不変であることから成り立つ．
+\■
+
+上の2つの命題からわかるように，$E^2$または$E^3$の有向線分は，命題0.1.2の同値関係により
+いくつかの同値類に分けられる．有向線分$\overrightarrow{PQ}$を含む同値類を
+$(\overrightarrow{PQ})$で表し，\textbf{幾何ベクトル}とよぶ．とくに
+$(\overrightarrow{PP})$を零ベクトルとよぶ．2つの幾何ベクトル$(\overrightarrow{P_1Q_1})$,
+$(\overrightarrow{P_2Q_2})$に対して，$(\overrightarrow{AB})	\in (\overrightarrow{P_1Q_1})$，
+$(\overrightarrow{BC})	\in	(P_2Q_2)$なるとき，$(\overrightarrow{AC})$を
+$(\overrightarrow{P_1Q_1})$と$(\overrightarrow{P_2Q_2})$の和とよび，
+\[
+	(\overrightarrow{AC})	=	(\overrightarrow{P_1Q_1})	+	(\overrightarrow{P_2Q_2})
+\]
+と表す（問1.1参照）．
+また，実数$\alpha$と有向線分$(\overrightarrow{AB})$に対して，
+$(\overrightarrow{AB})$と同じ直線上にあり，長さが$\alpha$培の有向線分を
+$(\overrightarrow{AC})$を$(\overrightarrow{AB})$の$\alpha$培とよび，
+\[
+		(\overrightarrow{AC})	=	\alpha(\overrightarrow{AB})
+\]
+と表す．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=12cm,height=2.4cm]{prop0x1x2.bmp}
+\end{figure}
+
+\問{1.1}
+次の（１），（２）の示せ．
+
+（１）
+$	\overrightarrow{AB},	\overrightarrow{A'B'} \in	(\overrightarrow{P_1Q_1}),
+	\overrightarrow{BC},	\overrightarrow{B'C'} \in	(\overrightarrow{P_2Q_2})$
+ならば
+$(\overrightarrow{AC})=(\overrightarrow{A'C'})$.
+
+（２）
+$\overrightarrow{AB},	\overrightarrow{A'B'}\in	(\overrightarrow{PQ})$
+ならば
+$\alpha(\overrightarrow{AB})=\alpha(\overrightarrow{A'B'})$.
+
+\証明
+
+（１）
+$\overrightarrow{AB}	\in (\overrightarrow{P_1Q_1})$,
+$\overrightarrow{BC}	\in (\overrightarrow{P_2Q_2})$より
+$(\overrightarrow{AC})=(\overrightarrow{P_1Q_1})+(\overrightarrow{P_2Q_2})$．
+$\overrightarrow{A'B'}	\in (\overrightarrow{P_2Q_2})$,
+$\overrightarrow{B'C'}	\in (\overrightarrow{P_2Q_2})$より
+$(\overrightarrow{A'C'})=(\overrightarrow{P_1Q_1})+(\overrightarrow{P_2Q_2})$．
+よって
+$(\overrightarrow{AC})	=	(\overrightarrow{P_1Q_1})	+	(\overrightarrow{P_2Q_2})	=	(\overrightarrow{A'C'})$
+
+（２）
+$\overrightarrow{AB},\overrightarrow{A'B'}	\in	(\overrightarrow{PQ})$ならば，
+$\overrightarrow{AB}	\sim	\overrightarrow{A'B'}$．
+このとき$\overrightarrow{AB}$と$\overrightarrow{A'B'}$は平行移動で向きも含めて
+重なり合う．このとき，$\alpha	\overrightarrow{AB}$と$\alpha	\overrightarrow{A'B'}$は
+平行移動で向きも含めて重なり合うので
+$\alpha	\overrightarrow{AB}	\sim	\alpha	\overrightarrow{AB}$．
+したがって$\alpha	(\overrightarrow{AB})	=	\alpha	(\overrightarrow{AB})$
+（同値類の性質より）．
+\■
+
+
+上で定義した，和と実数倍の２つの演算をもつ$E^2$または$E^3$の幾何ベクトル全体の集合を，
+$V(E^2)$または$V(E^3)$で，またそれらの要素（幾何ベクトル）を
+%$\overrightarrow{\boldsymbol{u}},\overrightarrow{\boldsymbol{v}},\cdots$などで表す．
+$\vec{\boldsymbol{u}},\vec{\boldsymbol{v}},\cdots$などで表す．
+
+ベクトルは有向線分で表されるが，それ以外に，順序のついた実数の組$(a,b)$または
+$(a,b,c)$で表す方法もある．この2つの方法の関係を，空間$E^3$の場合について
+調べよう．
+
+3つの実数の順序をつけた組$(a,b,c)$を，3項の数ベクトルとよぶ．
+3項の数ベクトル全体からなる集合を$\R^3_*$と表し，3項数ベクトル空間とよぶ．
+$\R^3_*$の2つのベクトルの和，または実数倍は，
+\begin{align*}
+		(a,b,c)+(a',b',c')	&=	(a+a',	b+b',	c+c')	\\
+			\alpha	(a,b,c)		&=	(\alpha	a	,	\alpha	b	,	\alpha	c)
+\end{align*}
+で定める(1.1数ベクトル参照).
+
+空間$E^3$に，$O$を原点とする座標軸を考える．座標が$(1,0,0),(0,1,0),(0,0,1)$である
+3点を$E_1,E_2,E_3$とおき，
+\[
+	\overrightarrow{\boldsymbol{e}_1}	=	(\overrightarrow{OE_1}),
+	\overrightarrow{\boldsymbol{e}_2}	=	(\overrightarrow{OE_2}),
+	\overrightarrow{\boldsymbol{e}_3}	=	(\overrightarrow{OE_3}),
+\]
+とする．$V(E^3)$の元$\overrightarrow{u}=(\overrightarrow{PQ}$に対し，
+$(\overrightarrow{PQ})$に含まれる有向線分で，$O$を始点とするものを
+$\overrightarrow{OA}$，$A$の座標を$(a,b,c)$とすると
+\[
+	\overrightarrow{\boldsymbol{u}}	=	a	\overrightarrow{\boldsymbol{e}_1}
+																	+	b	\overrightarrow{\boldsymbol{e}_2}
+																	+	c	\overrightarrow{\boldsymbol{e}_3}
+\]
+である．
+$V(E^3)$と$\R_*^3$は集合として異なったものとみれば，原点$O$と座標軸をきめると，
+$V(E^3)$から$\R^3_*$への写像$f$が次のように定まる．すなわち，
+
+（保留）
+
+また，内積について見ると，$V(E^3)$のベクトル$\overrightarrow{\boldsymbol{u}}=(\overrightarrow{PQ})$
+の長さを$|\overrightarrow{\boldsymbol{u}}|$($(\overrightarrow{PQ})$の有効線分の長さ），また
+2つのベクトル$\overrightarrow{\boldsymbol{u}}$と$\overrightarrow{\boldsymbol{v}}$と
+なす角を$\theta$とすると，内積$(\overrightarrow{\boldsymbol{u}},\overrightarrow{\boldsymbol{v}})$は，
+\[
+	(\overrightarrow{\boldsymbol{u}},\overrightarrow{\boldsymbol{v}})
+  =
+  |\overrightarrow{\boldsymbol{u}}||\overrightarrow{\boldsymbol{v}}|
+  \cos \theta
+\]
+で定義され，$f(\overrightarrow{\boldsymbol{u}})=(a,b,c),
+f(\overrightarrow{\boldsymbol{v}})=(a',b',c')4$とすると，
+内積の値は\[
+	aa'	+	bb' + cc'
+\]
+であった．本書では，第4章で数を複素数まで拡張した場合の内積を定義して
+いる．その場合，内積がさきに定義され，それを用いてベクトルの長さ，
+2角ベクトルのなす角などに相当する量が定まることに注意されたい．

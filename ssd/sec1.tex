@@ -1,0 +1,159 @@
+\chapter{行列}
+
+この章では，数ベクトルおよび行列の概念を導入し，
+これらに対して行われる演算の基礎的な性質を述べる．
+また，数ベクトル空間の1次写像の基礎的性質についても
+触れる．
+
+\section{数ベクトル}
+
+\subsection{$n$項数ベクトル}
+数ベクトルの定義から始めよう．しばらく，普通のことを
+\textbf{スカラー}と呼ぶことにする．
+
+\定義{}
+$n$を自然数とする．$n$個のスカラー
+$a_1, a_2, \cdots , a_n$の順序のついた組
+を，\textbf{$n$項数ベクトル}という．これをたてに並べて
+\[
+	\begin{bmatrix}
+		a_1 \\ a_2 \\ \vdots \\ a_n
+	\end{bmatrix}
+\]
+のように書いたものを，\textbf{$n$項たてベクトル}，または
+\textbf{$n$項列ベクトル}という．またよこに並べて
+\[
+	\begin{bmatrix}
+		a_1 & a_2 & \cdots & a_n
+	\end{bmatrix}
+\]
+のように書いたものを，\textbf{$n$項よこベクトル}，または
+\textbf{$n$項行ベクトル}という．どちらの場合も，
+$a_i$をその数ベクトルの\textbf{第$i$成分}という．
+
+上の$n$項数ベクトルを$[a_i]_{1 \leq i \leq n}$または$[a_i]$とも表す．
+
+次に数ベクトルの演算とその性質を述べる．これらに関して，たてベクトル
+についていえることは，すべて同様のことがよこベクトルにつても
+成立つ．したがって，本書では原則として，たてベクトルのみを考える．
+
+2つの数ベクトル$[a_i]_{1 \leq i \leq m}$と$[b_i]_{1 \leq i \leq n}$とが
+\textbf{等しい}とは，$m=n$，かつ各$i \: (i=1,2, \cdots , n)$について
+$a_i = b_i$となることで，このとき，$[a_i]_{1 \leq i \leq m} = [b_i]_{1 \leq i \leq n}$と
+表す．
+
+今後は数ベクトルを$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$などの文字で表す．
+
+\定義{}
+\textbf{(数ベクトルの加法とスカラー乗法)}
+
+2つの$n$項数ベクトル
+$\displaystyle \boldsymbol{a}=\begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}$
+と
+$\displaystyle \boldsymbol{b}=\begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$
+に対して，これらを成分ごとに加えた$n$項数ベクトルを
+$\boldsymbol{a},\boldsymbol{b}$の\textbf{和}とよび，
+$\boldsymbol{a}+\boldsymbol{b}$で表す．すなわち，
+$\begin{bmatrix}
+		a_1 \\ a_2 \\ \vdots \\ a_n
+	\end{bmatrix}
+  +
+ \begin{bmatrix}
+		b_1 \\ b_2 \\ \vdots \\ b_n
+	\end{bmatrix}
+  =
+ \begin{bmatrix}
+		a_1 + b_1 \\ a_2 + b_2 \\ \vdots \\ a_n + b_n
+	\end{bmatrix}$.
+
+また，上の$n$項数ベクトル$\boldsymbol{a}$とスカラー$\alpha$に対して，
+$\boldsymbol{a}$の各成分を$\alpha$倍した$n$項数ベクトルを$\boldsymbol{a}$の
+$\alpha$倍（一般には\textbf{スカラー倍})とよび，$\alpha \cdot \boldsymbol{a}$
+または$\alpha \boldsymbol{a}$dで表す．すなわち，
+$\alpha \begin{bmatrix}
+		     a_1 \\ a_2 \\ \vdots \\ a_n 
+				\end{bmatrix}
+    =
+      \begin{bmatrix}
+		   \alpha a_1 \\
+		   \alpha a_2 \\
+       \vdots     \\
+		   \alpha a_n \\ 
+			\end{bmatrix}
+$，
+
+これらは簡単に
+\[
+	[a_i] + [b_i] = [a_i + b_i] , \quad \alpha [a_i ] = [\alpha a_i]
+\]
+とかくことができる．
+
+とくに，$\boldsymbol{a}$の$(-1)$倍である数ベクトル$(-1)\boldsymbol{a}$を$-\boldsymbol{a}$とかく．
+\[
+	-\boldsymbol{a} = (-1) \boldsymbol{a} = \begin{bmatrix}
+		                                        -a_1 \\ -a_2 \\ \vdots \\ -a_n
+																					\end{bmatrix}
+= [-a_i]
+\]
+また成分がすべて$0$であるような$n$項数ベクトルを\textbf{$n$項零ベクトル}といい，
+$\boldsymbol{0}_n$または単に$\boldsymbol{0}$で表す．すなわち，
+$\boldsymbol{0}_n = \boldsymbol{0} = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}$.
+（保留）
+
+
+\subsection{数ベクトル空間}
+
+上で述べた数ベクトルの演算は，成分ごとに行われる数の演算を
+まとめて書いたものに過ぎない．よって数の演算の性質に注目すれば，
+実数を成分とする数ベクトルだけでなく，複素数を成分にもつものを考えても，
+同様の扱いができる．この観点は本書全体を通じて重要であるから，
+ここで説明しておこう．
+
+今後，すべての実数の集合を$\R$，すべての複素数の集合を$\C$で表す．
+\footnote{
+複素数については付録1を参照せよ．
+}
+これらの数の集合は，いわゆる四則演算（加減乗除の四則，ただし，$0$で割ることだけは
+禁止する)に関して「閉じている」という共通の性質をもつ．すなわち，$\R$または$\C$の
+どちらかを$K$で示すとき，次のことが成立つ．
+
+（保留）
+
+$K^n$のベクトル$\boldsymbol{a}_1 , \boldsymbol{a}_2, \cdots , \boldsymbol{a}_m$の
+それぞれのスカラー倍を加えたベクトル
+$\alpha_1\boldsymbol{a}_1 + \alpha_2\boldsymbol{a}_2 + \cdots + \alpha_m\boldsymbol{a}_m
+\: \alpha_1 , \alpha_2 , \cdots , \alpha_m \in K)$を
+$\boldsymbol{a}_1 , \boldsymbol{a}_2, \cdots , \boldsymbol{a}_m$の
+\textbf{1次結合}または\textbf{線形結合}という．
+
+（保留）
+
+次の性質の証明は容易だが，重要な意味をもつ．
+
+\命題{1.1.3}
+$K$の上の$n$項数ベクトル空間$K^n$の任意のベクトル$\boldsymbol{x}$は
+$n$項基本ベクトル$\boldsymbol{e}_1 , \boldsymbol{e}_2 , \cdots , \boldsymbol{e}_n$の
+1次結合
+\[
+	\boldsymbol{x} = x_1 \boldsymbol{e}_1 + x_2 \boldsymbol{e}_2 + \cdots + x_n \boldsymbol{e}_n
+\]
+として，（和の順序を除いて）ただ1通りに表される．
+
+
+次の命題は，第3章で用いられる．
+
+\命題{1.1.4}
+与えられた($n$項)ベクトル$\boldsymbol{a}_1 , \boldsymbol{a}_2 , \cdots , \boldsymbol{a}_s$
+について，
+\begin{list}{}{}
+\item (1) $\boldsymbol{0}$および$\boldsymbol{a}_i \: ( i=1,2, \cdots , s)$は，
+$\boldsymbol{a}_1 , \boldsymbol{a}_2 , \cdots , \boldsymbol{a}_s$の1次結合である．	
+\item (2) ベクトル$\boldsymbol{x}$が$\boldsymbol{a}_1, \boldsymbol{a}_2, \cdots , \boldsymbol{a}_s$
+の1次結合で，各$\boldsymbol{a}_i \: (i=1,2, \cdots , s)$がベクトル
+$\boldsymbol{b}_1, \boldsymbol{b}_2 , \cdots , \boldsymbol{b}_t$の1次結合であれば，
+$\boldsymbol{x}$は$\boldsymbol{b}_1 , \cdots , \boldsymbol{b}_t$の1次結合である．
+\end{list}
+
+\証明
+
+（保留）

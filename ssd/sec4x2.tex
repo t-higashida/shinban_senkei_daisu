@@ -1,0 +1,280 @@
+\section{内積}
+
+\subsection{内積の性質}
+
+前節まではもっぱら数の四則演算を基礎とした理論であった．以下では，
+さらに，数の計量的性質（大小関係，絶対値など）をも用いて，
+行列の対角化を詳しく論じる．
+
+これからは複素数を主に扱う．共役複素数，絶対値などについては，付録1を
+参照されたい．
+
+$(m,n)$型の複素行列
+\[
+	A = \begin{bmatrix}
+		    \alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n} \\
+		    \alpha_{11} & \alpha_{12} & \cdots & \alpha_{1n} \\
+        \vdots      & \vdots      &        & \vdots      \\
+		    \alpha_{m1} & \alpha_{m2} & \cdots & \alpha_{mn}
+			\end{bmatrix}
+    = [\alpha_{ij}]
+\]
+に対し，$A$の各成分をその共役複素数で置き換えた行列
+\[
+     \begin{bmatrix}
+		    \overline{\alpha_{11}} & \overline{\alpha_{12}} & \cdots & \overline{\alpha_{1n}} \\
+		    \overline{\alpha_{11}} & \overline{\alpha_{12}} & \cdots & \overline{\alpha_{1n}} \\
+        \vdots                 & \vdots                 &        & \vdots                 \\
+		    \overline{\alpha_{m1}} & \overline{\alpha_{m2}} & \cdots & \overline{\alpha_{mn}}
+			\end{bmatrix}	
+\]
+を$A$の\textbf{共役行列}といい，$\overline{A}$で示す．
+
+次のことは，共役複素数の性質から容易にわかる．
+
+\命題{4.2.1}
+$(m,n)$型の複素行列$A,A'$と$(n,p)$型の複素行列$B$および複素数$\alpha$について
+\begin{list}{}{}
+	\item (1) $\overline{A+A'} = \overline{A} + \overline{A'}$.
+	\item (2) $\overline{\alpha A} = \overline{\alpha} \overline{A}$.
+	\item (3) $\overline{AB} = \overline{A} \overline{B}$.
+	\item (4) $\overline{\overline{A}}= A$.
+	\item (5) $A= \overline{A} \: \Leftrightarrow$ $A$は実行列 
+\end{list}
+
+\問{2.1}
+命題4.2.1を確かめよ．
+
+（保留）
+
+\問{2.2}
+$A$が複素正方行列のとき，$\overline{\det (A)} = \det ( \overline{A})$を示せ．
+
+（保留）
+
+上の記号は，複素数を成分とする数ベクトルに用いる．例えば，$\C^n$のベクトル
+\[
+	\boldsymbol{a} = \begin{bmatrix}
+		                \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n
+									 \end{bmatrix}
+\quad \text{に対して}\quad
+	\boldsymbol{a} = \begin{bmatrix}
+		                \: \overline{\alpha_1} \: \\ \: \overline{\alpha_2} \: \\ \vdots \\ \: \overline{\alpha_n} \:
+							     \end{bmatrix}
+\]
+を$\overline{\boldsymbol{a}}$で表す．
+
+以下，いつものように実数体$\R$または複素数体$\C$を$K$で表し，$K$の上の数ベクトル
+空間$K^n$について考える．一般には$K=\C$の場合を中心に述べるが，
+$\K = \R$のときは$\alpha \in \R$，$\boldsymbol{a} \in \R^n$ならばそれぞれ
+$\overline{\alpha} = \alpha, \: \overline{\boldsymbol{a}} = \boldsymbol{a}$
+となることに注意して読まれたい．
+
+\定義{}
+$K^n$の2つのベクトル$\boldsymbol{a} = [\: \alpha_i \: ], \: \boldsymbol{b} = [\: \beta_i \: ]$に対し，値
+\[
+	\alpha_1 \overline{\beta_1} + \alpha_2 \overline{\beta_2} + \cdots + \alpha_n \overline{\beta_n}
+\]
+を$(\boldsymbol{a} \cdot \boldsymbol{b})$と表し，$\boldsymbol{a} , \boldsymbol{b}$の\textbf{内積}という．
+これは行列の積を用いて
+\[
+	(\boldsymbol{a} \cdot \boldsymbol{b}) = \tr{\boldsymbol{a} \overline{\boldsymbol{b}}}
+                                        = \begin{bmatrix} \:
+		                                        \alpha_1 & \alpha_2 & \cdots & \alpha_n
+																					\: \end{bmatrix} 
+                                          \begin{bmatrix}
+		                                       \: \overline{\beta}_1 \: \\
+                                           \: \overline{\beta}_2 \: \\
+                                            \vdots             \\
+                                           \: \overline{\beta}_n \:
+																					\end{bmatrix} 
+\]
+とかくことができる．
+
+とくに$\boldsymbol{a} =\boldsymbol{b}$の場合，$\boldsymbol{a} = [ \: \alpha_i \: ]$について
+
+\begin{align*}
+	(\boldsymbol{a} \cdot \boldsymbol{a} ) =   \alpha_1 \overline{\alpha}_1
+                                           + \alpha_2 \overline{\alpha}_2
+                                           + \cdots
+                                           + \alpha_n \overline{\alpha}_n	
+                                         =   |\alpha_1|^2 +
+                                             |\alpha_2|^2 + \cdots 
+                                           + |\alpha_n|^2
+\end{align*}
+となって，これは負で無い実数であるから，その負で無い平方根
+\[
+	\sqrt{(\boldsymbol{a} \cdot \boldsymbol{a})}
+  =
+  \sqrt{|\alpha_1|^2 + |\alpha_2|^2 + \cdots + |\alpha_n|^2}
+\]
+を$||\boldsymbol{a}||$であらわし，$\boldsymbol{a}$の\textbf{長さ}または\textbf{ノルム}という．
+
+（中略）
+
+\命題{4.2.2}
+$K^n$のベクトル$\boldsymbol{a},\boldsymbol{a}',\boldsymbol{b},\boldsymbol{b}'
+\boldsymbol{a}_1\boldsymbol{a}_2,\cdots , \boldsymbol{a}_s , \boldsymbol{b}_1,\boldsymbol{b}_2,
+\cdots , \boldsymbol{b}_t$および$K$の要素$\alpha_1 , \alpha_2 , \cdots , \alpha_s , \beta_1,
+\beta_2 , \cdots , \beta_t$に対して，
+
+\begin{list}{}{}
+	\item (1)  $((\boldsymbol{a} + \boldsymbol{a}') \cdot \boldsymbol{b}) = (\boldsymbol{a} \cdot \boldsymbol{b}) + (\boldsymbol{a}' \cdot \boldsymbol{b})$
+	\item 　　$\boldsymbol{a} \cdot ((\boldsymbol{b} + \boldsymbol{b}')) = (\boldsymbol{a} \cdot \boldsymbol{b}) + (\boldsymbol{a} \cdot \boldsymbol{b}')$	\textbf{(内積の双線形性)}
+	\item (2)  $(\alpha \boldsymbol{a} \cdot \boldsymbol{b}) = \alpha (\boldsymbol{a} \cdot \boldsymbol{b})$
+	\item (2') $(\boldsymbol{a} \cdot \alpha \boldsymbol{b}) = \overline{\alpha} (\boldsymbol{a} \cdot \boldsymbol{b})$，
+とくに，$(\boldsymbol{a} \cdot (\pm i \boldsymbol{b})) = \mp i (\boldsymbol{a} \cdot \boldsymbol{b})$ (複合同順)
+	\item (3)  $(\boldsymbol{a}\cdot \boldsymbol{b})= \overline{(\boldsymbol{b} \cdot \boldsymbol{a})}$
+	\item (4) すべての$\boldsymbol{a} \in K^n$について，$(\boldsymbol{a} \cdot \boldsymbol{a})$は負でない実数で，
+$(\boldsymbol{a} \cdot \boldsymbol{a}) = 0$となるのは，$\boldsymbol{a} = \boldsymbol{0}$のときに限る．（\textbf{正値性})
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item (11) $||||$
+	\item
+\end{list}
+内積は,ベクトルの長さによって次のように表される．
+
+\命題{4.2.3}
+\begin{list}{}{}
+	\item	(1) $\R^n$のベクトル$\boldsymbol{a},\boldsymbol{b}$に対し，
+\[
+	(\boldsymbol{a} \cdot \boldsymbol{b}) = \frac{||\boldsymbol{a} + \boldsymbol{b}||^2 - ||\boldsymbol{a}||^2 - ||\boldsymbol{b}||^2}{2}
+\]
+	\item (2) $\C^n$のベクトル$\boldsymbol{a},\boldsymbol{b}$に対し
+\[
+	(\boldsymbol{a} \cdot \boldsymbol{b}) = \frac{||\boldsymbol{a}+\boldsymbol{b}||^2 - ||\boldsymbol{a}||^2 - ||\boldsymbol{b}||^2}{2}
+  + i \frac{||\boldsymbol{a} + i \boldsymbol{b}||^2 - || \boldsymbol{a} || ^2 - || \boldsymbol{b} ||^2}{2}
+\]
+\end{list}
+\証明
+
+（保留）
+
+
+\subsection{正規直交系}
+
+次の2つの不等式は重要である（$K=\C$であっても，不等式の両辺は実数であり，
+大小を比較する意味があることに注意せよ）．
+
+\定理{4.2.4}
+$K^n$のベクトル$\boldsymbol{a},\boldsymbol{b}$について
+\begin{list}{}{}
+	\item	(1) $|(\boldsymbol{a} \cdot \boldsymbol{b})| \leqq || \boldsymbol{a}|| || \boldsymbol{b}||$
+\quad \textbf{(Schwarzの不等式)}
+	\item (2) $|| \boldsymbol{a} + \boldsymbol{b}|| \leqq || \boldsymbol{a} || + ||\boldsymbol{b}||$
+\quad \textbf{(三角不等式)} 
+\end{list}
+\証明
+(1) $\boldsymbol{a} = \boldsymbol{0}$ならば，両辺とも$0$になって明らかであるから，
+$\boldsymbol{a} \ne \boldsymbol{0}$とする．両辺とも負でない実数であるから，平方して比較すると，
+\begin{align*}
+&	||\boldsymbol{a}||^2 ||\boldsymbol{b}||^2 - |(\boldsymbol{a} \cdot \boldsymbol{b})|^2 \\
+&=||\boldsymbol{a}||^2 (\boldsymbol{b} \cdot \boldsymbol{b}) 
+  - (\boldsymbol{a}\cdot \boldsymbol{b})\overline{(\boldsymbol{a}\cdot \boldsymbol{b})} \\
+&= ||\boldsymbol{a}||^2 (\boldsymbol{b} \cdot \boldsymbol{b})
+  - (\boldsymbol{a}\cdot \boldsymbol{b})(\boldsymbol{b}\cdot \boldsymbol{a})
+  - (\boldsymbol{a}\cdot \boldsymbol{b})(\boldsymbol{b}\cdot \boldsymbol{a})
+  + (\boldsymbol{a}\cdot \boldsymbol{b})(\boldsymbol{b}\cdot \boldsymbol{a}) \\
+&= ||\boldsymbol{a}||^2
+   \left\{
+      (\boldsymbol{b}\cdot \boldsymbol{b}) 
+    - \frac{(\boldsymbol{a} \cdot \boldsymbol{b})}{||\boldsymbol{a}||^2}
+      (\boldsymbol{a} \cdot \boldsymbol{b})
+    - (\boldsymbol{a} \cdot \boldsymbol{b})
+      \frac{(\boldsymbol{b} \cdot \boldsymbol{a})}{||\boldsymbol{a}||^2} 
+    + \frac{(\boldsymbol{a} \cdot \boldsymbol{b})}{||\boldsymbol{a}||^2}
+      \frac{(\boldsymbol{b} \cdot \boldsymbol{a})}{||\boldsymbol{a}||^2}
+      (\boldsymbol{a} \cdot \boldsymbol{a})
+   \right\}
+\end{align*}
+ここで，$\displaystyle \lambda = \frac{(\boldsymbol{b}\cdot \boldsymbol{a})}{||\boldsymbol{a}||^2}$とおけば，
+$||\boldsymbol{a}||^2 \in \R$より，
+$\displaystyle \overline{\lambda} = \frac{(\boldsymbol{a}\cdot \boldsymbol{b})}{||\boldsymbol{a}||^2}$.
+よって，
+\begin{align*}
+	\text{(上式)} &= ||\boldsymbol{a}||^2 
+                     \{   (\boldsymbol{b}\cdot \boldsymbol{b}) 
+                        - \overline{\lambda} (\boldsymbol{b}\cdot \boldsymbol{a})
+                        - \lambda (\boldsymbol{a}\cdot \boldsymbol{b})
+                        + \lambda \overline{\lambda} (\boldsymbol{a}\cdot \boldsymbol{a})
+                     \} \\
+                &= ||\boldsymbol{a}||^2 
+                     \{   (\boldsymbol{b}\cdot \boldsymbol{b}) 
+                        - \overline{\lambda} \overline{(\boldsymbol{a}\cdot \boldsymbol{b})}
+                        - \lambda (\boldsymbol{a}\cdot \boldsymbol{b})
+                        + \lambda \overline{\lambda} (\boldsymbol{a}\cdot \overline{\boldsymbol{a}})
+                     \} \\
+               &= ||\boldsymbol{a}||^2(\boldsymbol{b} - \lambda\boldsymbol{a}) \cdot
+                                        \overline{(\boldsymbol{b} - \lambda\boldsymbol{a})} \\
+               &= ||\boldsymbol{a}||^2 ||\boldsymbol{b} - \lambda\boldsymbol{a}||^2 \\
+               & \geqq 0 \cdots \cdots \text{(＊)}
+\end{align*}
+
+(2) 両辺とも負でないから，それぞれ平方すると，命題4.2.3の証明から
+\begin{align*}
+	||\boldsymbol{a}+\boldsymbol{b}||^2 = ||\boldsymbol{a}||^2 + 2 \text{Re } (\boldsymbol{a}\cdot \boldsymbol{b}) + ||\boldsymbol{b}||^2 \\
+  (||\boldsymbol{a}||+||\boldsymbol{b}||)^2 = ||\boldsymbol{a}||^2 + 2 ||\boldsymbol{a}||||\boldsymbol{b}|| + ||\boldsymbol{b}||^2
+\end{align*}
+ここで(1)によって
+\begin{align*}
+	\text{Re } (\boldsymbol{a} \cdot \boldsymbol{b}) 
+     & \leqq |\text{Re} (\boldsymbol{a} \cdot \boldsymbol{b})|
+       \leqq | \boldsymbol{a} \cdot \boldsymbol{b}| \\
+     & \leqq ||\boldsymbol{a} || \cdot ||\boldsymbol{a} || \quad \cdots \cdots \text{(＊＊)}
+\end{align*}
+であるから，
+\[
+	|| \boldsymbol{a} + \boldsymbol{b} || ^2 \leqq (||\boldsymbol{a}|| + ||\boldsymbol{b}||)^2
+\]
+\■
+
+Schwarzの不等式をベクトルの成分を用いて書き換えると（両辺を平方して），
+$a_i , b_i \in \R \: (i = 1,2, \cdots , n)$に対しては，
+\[
+	(a_1 b_1 + a_2 b_2 + \cdots + a_n b_n)^2 \leqq (a_1^2 + a_2^2 + \cdots + a_n^2)(b_1^2 + b_2^2 + \cdots + b_n^2)
+\]
+$\alpha_i , \beta_i \in \C \: (i = 1,2, \cdots , n)$に対しては，
+\[
+	(\alpha_1 \overline{\beta}_1 + \alpha_2 \overline{\beta}_2 + \cdots + \alpha_n \overline{\beta}_n)^2 
+  \leqq (|\alpha_1|^2 + |\alpha_2|^2 + \cdots + |\alpha_n|^2)(|\beta_1|^2 + |\beta_2|^2 + \cdots + |\beta_n|^2)
+\]
+となる(第2章 例4.2，問4.3 参照).
+
+
+（保留）
+
+(1) での等号は($X \ne 0$のとき，)$Y=\Lambda X$となるスカラー$\Lambda$があるとき，そのときのみ成立する．
+
+（中略）
+
+さて，$\R^n$の$\boldsymbol{0}$でないベクトル$\boldsymbol{a},\boldsymbol{b}$について，
+定理4.2.4の(1)から
+\[
+	-1 \leqq \frac{(\boldsymbol{a} \cdot \boldsymbol{b})}{||\boldsymbol{a}\cdot \boldsymbol{b}||} \leqq 1
+\]
+であるから，
+\[
+  \frac{(\boldsymbol{a} \cdot \boldsymbol{b})}{||\boldsymbol{a} ||\cdot || \boldsymbol{b}||} = \cos \theta
+ \quad \text{すなわち} \quad (\boldsymbol{a} \cdot \boldsymbol{b} )= || \boldsymbol{a} \cdot \boldsymbol{b} \cos \theta
+\]
+をみたす実数$\theta \: (0 \leqq \theta \leqq \pi)$がただ1つ定まる．この$\theta$を
+$\boldsymbol{a}, \: \boldsymbol{b}$のなす\textbf{角}という．ここで
+\begin{align*}
+	(\boldsymbol{a} \cdot \boldsymbol{b}) > 0 &\Leftrightarrow 0 \leqq \theta \leqq \frac{\pi}{2} \\
+	(\boldsymbol{a} \cdot \boldsymbol{b}) = 0 &\Leftrightarrow \theta = \frac{\pi}{2} \\
+	(\boldsymbol{a} \cdot \boldsymbol{b}) < 0 &\Leftrightarrow \frac{\pi}{2} \leqq \theta \leqq \pi \\
+\end{align*}
+となるが，とくに$\displaystyle \theta = \frac{\pi}{2}$，
+すなわち$(\boldsymbol{a} \cdot \boldsymbol{b})=0$であるとき，$\boldsymbol{a},\boldsymbol{b}$は
+\textbf{直交する}といい，$\boldsymbol{a} \perp \boldsymbol{b}$とかく．
+
+（保留）
+
+\定義{}
+$K^n$におけるベクトル系$\boldsymbol{a}_1 , \boldsymbol{a}_2 , \cdots , \boldsymbol{a}_s$について，
+どのベクトルも$\boldsymbol{0}$でなく，どの2つも直交するとき，これを\textbf{直交系}という．
+さらに各ベクトルの長さが$1$であるとき，これを\textbf{正規直交系}とよぶ．

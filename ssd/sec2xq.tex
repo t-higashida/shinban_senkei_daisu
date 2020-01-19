@@ -1,0 +1,64 @@
+
+\subsection{演習問題}
+
+
+4.
+空間内の，1直線上にない3点$(x_i,y_i,z_i) \: (i=1,2,3)$を通る平面の方程式は，
+\[
+	\begin{vmatrix}
+		x   & y   & z   & 1 \\
+		x_1 & y_1 & z_2 & 1 \\
+		x_2 & y_2 & z_2 & 1 \\
+		x_3 & y_3 & z_3 & 1 \\
+	\end{vmatrix}
+  = 0
+\]
+であることを示せ．
+
+他の問題（数学セミナーより）
+
+\問{}
+$\displaystyle
+ \begin{vmatrix}
+		a & b & c \\
+    c & a & b \\
+    b & c & a
+	\end{vmatrix}
+  = a^3+ b^3 + c^3 - 3abc
+$
+を用いて次の等式を示せ．
+\[
+  (a^3+b^3+c^3 -3abc)(x^3+y^3+z^3 -3xyz)
+  =p^3+q^3+r^3 -3pqr
+\]
+ただし$p=ax + by + cz, \: q=ay+bz+cx, \: r=az+bx+cy$とする．
+
+\証明
+\begin{align*}
+\text{（左辺）} &=
+ \displaystyle
+ \begin{vmatrix}
+		a & b & c \\
+    c & a & b \\
+    b & c & a
+	\end{vmatrix}
+ \begin{vmatrix}
+		x & y & z \\
+    z & x & y \\
+    y & z & x
+	\end{vmatrix}
+  =
+  \begin{vmatrix}
+		ax+by+cz & ay+bz+cx & az+bx+cy \\
+    az+bx+cy & ax+by+cz & ay+bz+cx \\
+    ay+bz+cx & az+bx+cy & ax+by+cz
+	\end{vmatrix} \\
+  &=
+ \begin{vmatrix}
+		p & q & r \\
+    r & p & q \\
+    q & r & p
+	\end{vmatrix} 
+  =
+  p^3+q^3+r^3 -3pqr	
+\end{align*}

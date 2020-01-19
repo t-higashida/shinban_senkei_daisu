@@ -1,0 +1,67 @@
+\section{極形式}
+
+ふつうの平面$E^2$に$O$を原点とする直交座標を定め，点$P$の座標をふつうのように
+$(x,y)$とかく．このとき，複素数$\alpha=a+bi	\quad	(a,b	\in	\R)$に平面の点
+$(a,b)$を対応させると，複素数全体と平面の点全体が1対1に対応する．
+こうして複素数と対応させた平面を\textbf{複素平面}または\textbf{Gauss平面}という．
+この場合，絶対値$|\alpha|$は原点と$\alpha$に対応する点の距離にほかならない．
+複素平面の第１座標軸($x$軸)を\textbf{実軸}，第２座標軸($y$軸)を\textbf{虚軸}
+というが，実軸上の点には実数が，虚軸上の点には純虚数と$0$が対応する．
+
+$0$でない複素数$\alpha=a+bi$に対応する点を$P$とし，ベクトル$(\overrightarrow{OP})$
+の実軸の正の向きのなす角を$\theta$とすれば，$a=|\alpha|	\cos	\theta$，
+$b=|\alpha|	\sin	\theta$であるから，$|r|=|\alpha|$とおけば，
+\[
+	\alpha=r(\cos	\theta	+	i	\sin	\theta)
+\]
+と表わされる．これを$\alpha$の\textbf{極形式}といい，
+$\theta$を$\alpha$の\textbf{偏角}とよび，$\arg	\alpha$で示す．
+
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=5cm,height=4cm]{figAx1.bmp}
+\end{figure}
+
+\注意{}
+$\alpha = 0$のとき，偏角は定まらない．$\alpha \ne 0$でも，偏角はいわゆる一般角として
+考えるのが便利である．角$\theta$と$\theta$が$2 \pi$の整数倍だけことなるとき
+（同じ動径をもつとき），これを$\theta \equiv \theta'$で示そう．
+
+（保留）
+
+\命題{2.1}
+$0$でない複素数$\alpha,\beta$について，次のことが成り立つ．
+\begin{list}{}{}
+	\item	(1) $\arg (\alpha \beta) \equiv \arg \alpha + \arg \beta$
+	\item (2) $\arg ( \beta^{-1} \equiv -\arg \beta$
+	\item (3) $\displaystyle \arg \left(	\frac{\alpha}{\beta} \right) \equiv \alpha - \arg \beta$
+	\item (4) $\arg (\alpha^n) \equiv n \arg \alpha \quad ( n=0 , \pm 1 , \pm 2, \cdots )$
+\end{list}
+
+\証明
+(1): $r = | \alpha| , s = |\beta|, \theta = \arg \alpha, \varphi = \arg \beta$とすると，
+三角関数の加法定理によって，
+\begin{align*}
+	\alpha \beta &= r ( \cos \theta + i \sin \theta) s(\cos \varphi + i \sin \varphi) \\
+               &= rs \{ (\cos \theta \cos \varphi - \sin \theta \sin \varphi) + i(\cos \theta \sin \varphi + \sin \theta \cos \theta) \}
+               &= rs ( \cos ( \theta + \varphi) + i \sin ( \theta + \varphi) )
+\end{align*}
+$|\alpha \beta | = | \alpha | | \beta| = rs$だから，これは$\alpha \beta$の極形式を
+与える．よって上の注意の意味で，
+\[
+	\arg ( \alpha \beta ) \equiv \theta + \varphi = \arg \alpha + \arg \beta
+\]
+(2):(1)と同様にして示される．
+
+(3),(4) : (1), (2)からわかる．
+
+\例{2.1}
+$|\alpha | = 1 $のとき，$\theta = \arg \alpha$とし，任意の整数$n$に対して
+$\alpha^n$の極形式をかくと$(|\alpha^n| = | \alpha | ^n = 1$に注意)，
+命題2.1によって
+\[
+	(\cos \theta + i\sin \theta)^n = \cos n \theta + i \sin n \theta
+\]
+となる．これを\textbf{de Moivreの公式}という．
+
+（保留）

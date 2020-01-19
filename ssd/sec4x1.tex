@@ -1,0 +1,377 @@
+\chapter{行列の標準形}
+
+この章では，行列の標準化の理論を述べる．これは，与えられた
+正方行列の性質を引き継いだより簡単な行列を見出す理論であり，
+§4.6で述べる二次曲面の分類をはじめとして，
+数学の各方面への応用のために重要である．
+
+\section{固有値と固有ベクトル}
+
+\subsection{座標変換と行列の対角化}
+
+空間において，原点$O$と$x$軸，$y$軸，$z$軸からなる直交座標（系）を
+$O_{xyz}$で表わす．$O_{xyz}$に関する座標が$(1,0,0),(0,1,0),(0,0,1)$
+である点を，それぞれ$E_1,E_2,E_3$とする．幾何ベクトル
+$(\overrightarrow{OE_1})$，$(\overrightarrow{OE_2})$，
+ $(\overrightarrow{OE_3})$をそれぞれ
+$(\overrightarrow{\boldsymbol{e}_1})$，
+$(\overrightarrow{\boldsymbol{e}_2})$，
+$(\overrightarrow{\boldsymbol{e}_3})$で表わし，
+$O_{xyz}$の\textbf{基本ベクトル}とよぶ．座標が
+$(x,y,z)$である点を$P$，幾何ベクトルを$\overrightarrow{\boldsymbol{u}}$とすると，
+\[
+  \overrightarrow{\boldsymbol{u}}
+  = x \overrightarrow{\boldsymbol{e}_1}
+   +y \overrightarrow{\boldsymbol{e}_2}
+   +z \overrightarrow{\boldsymbol{e}_3}
+\]
+と表わせる．
+
+ところで，原点は同じ$O$である新しい直交座標（系）$O_{x'y'z'}$をとり，
+$O_{x'y'z'}$の基本ベクトルを
+
+（保留）
+
+\定義{}
+2つの($K$の上の)$n$次行列$A,B$に対して，$P^{-1} A P = B$となる($K$の上の)
+$n$次正則行列$P$があるとき，$A$と$B$は($K$の上で)\textbf{相似}であるという．
+
+
+
+
+\subsection{固有値と固有ベクトル}
+
+($K$の上の) $n$次行列$A$が対角化可能であれば，($K$の上の) $n$次正則行列
+$P$があって，
+\[
+	P^{-1}AP = 
+  \begin{bmatrix}
+		\lambda_1 &           &        &   O       \\
+		          & \lambda_2 &        &           \\
+		          &           & \ddots &           \\
+		O         &           &        & \lambda_n \\
+	\end{bmatrix} 
+  \quad (\lambda_i \in K,: i = 1 ,2, \cdots , n)
+\]
+となる．$P$を列ベクトルで表して，
+$P= \begin{bmatrix}
+		  \boldsymbol{u}_1 & \boldsymbol{u}_2 & \cdots & \boldsymbol{u}_n
+		\end{bmatrix}
+$とすると，上式から
+\[
+	A \begin{bmatrix}
+		  \boldsymbol{u}_1 & \boldsymbol{u}_2 & \cdots & \boldsymbol{u}_n
+		\end{bmatrix}
+  =
+  \begin{bmatrix}
+		  \boldsymbol{u}_1 & \boldsymbol{u}_2 & \cdots & \boldsymbol{u}_n
+  \end{bmatrix}
+  \begin{bmatrix}
+		\lambda_1 &           &        &   O       \\
+		          & \lambda_2 &        &           \\
+		          &           & \ddots &           \\
+		O         &           &        & \lambda_n \\
+	\end{bmatrix} 
+\]
+よって，
+$ \begin{bmatrix}
+	  A \boldsymbol{u}_1 & A \boldsymbol{u}_2 & \cdots & A \boldsymbol{u}_n
+	\end{bmatrix}
+  =
+  \begin{bmatrix}
+	  \lambda_1 \boldsymbol{u}_1 & \lambda_2 \boldsymbol{u}_2 & \cdots & \lambda_n \boldsymbol{u}_n
+	\end{bmatrix}
+$となるから，
+\[
+	A \boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i \quad (i=1,2,\cdots ,n)
+\]
+を得る．ここで，$P$が正則であることから，
+$ \boldsymbol{u}_1 , \boldsymbol{u}_2 , \cdots , \boldsymbol{u}_n$は
+1次独立であるので，$\boldsymbol{u}_i \ne \boldsymbol{0} \: (i=1,2,\cdots , n)$.
+
+我々の当面の目標は，行列$P$を求めることであるから，行列$A$に対して，
+このような関係をみたすスカラーとベクトルを考えよう．
+
+\定義{}
+$K$の上の $n$次正方行列$A$に対して，スカラー$\lambda \: ( \in K)$と$\boldsymbol{0}$
+でない$n$項数ベクトル$\boldsymbol{x} \: ( \in K^n)$があって，
+\[
+	A \boldsymbol{x} = \lambda \boldsymbol{x} \cdots \cdots \text{(＊)}
+\]
+となるとき，$\lambda$を$A$の\textbf{固有値}，$\boldsymbol{x}$を$A$の\textbf{固有ベクトル}
+とよぶ．
+零ベクトルは任意のスカラー$\lambda$に対して(＊)式を満たすが，これは固有ベクトルから
+除外される．
+
+ある$\boldsymbol{x}$が$A$の固有ベクトルであるとき，
+この固有ベクトルに対して上の(＊)式をみたすスカラー$\lambda$は，
+ただ1つである（実際，$A \boldsymbol{x} = \lambda \boldsymbol{x}, A \boldsymbol{x}=\lambda' \boldsymbol{x}$とすれば，
+$(\lambda - \lambda') \boldsymbol{x}  = \boldsymbol{0}, \boldsymbol{x} \ne \boldsymbol{0}$から，
+$\lambda - \lambda' = 0)$．よってこのとき，$\boldsymbol{x}$を固有値
+\textbf{$\lambda$に属する}固有ベクトルという．
+
+他方，$A$の固有値$\lambda$に対して，(＊)式をみたすベクトル$\boldsymbol{x}$がたくさんあることは
+次の考察からわかる．
+
+$n$次行列$A$とスカラー$\lambda$について$\boldsymbol{x} = [ x_i ]$とすれば，
+（＊）は次のようにかける：
+\[
+	(\lambda E_n -A ) \begin{bmatrix}
+		                  x_1 \\ x_2 \\ \cdots \\ x_n
+										\end{bmatrix}
+                    =
+                    \begin{bmatrix}
+		                  0 \\ 0 \\ \cdots \\ 0
+										\end{bmatrix}
+                    \cdots \cdots \text{(＊＊)}
+\]
+これは$x_1 , x_2 , \cdots , x_n$についての同次連立1次方程式であるから，
+つねに自明な解$\boldsymbol{x}=\boldsymbol{0}$をもつ．$\lambda$が$A$の固有値
+であるとは，(＊＊)が非自明な解をもつことを意味し，$\lambda$に属する固有ベクトルとは，
+(＊＊)の$\boldsymbol{0}$以外の解ベクトルにほかならない．
+
+$\lambda$が$A$の固有値であるとき，$\lambda$に属する$A$の固有ベクトル全体に$\boldsymbol{0}$
+を付け加えた集合，すなわち同次連立1次方程式(＊＊)の解空間
+\[
+	W = \{ \boldsymbol{x} \in K^n \: | \: A \boldsymbol{x} = \lambda \boldsymbol{x} \}
+\]
+を$\lambda$に属する\textbf{固有空間}という
+
+（保留）
+
+\系{4.1.7}
+$n$次行列$A$が$n$個の相異なった固有値をもつならば，
+$A$は対角化可能である．またこのとき，各固有値に属する
+固有空間は１つの固有ベクトルのスカラー倍全体である．
+
+\証明
+
+（保留）
+
+
+\subsection{固有方程式と特性解}
+
+ここで，固有値を求める一般的な方法を述べる．
+これは，すでに例において示唆されたものである．
+
+$K$の上の$n$次行列$A$に対して，スカラー$\lambda \: (\in )$が$A$の固有値であるとは，
+$n$ 元同次連立1次方程式
+\[
+	(\lambda E_n - A) \begin{bmatrix}
+		                 x_1 \\ x_2 \\ \vdots \\ x_n
+										\end{bmatrix}
+                    =
+                    \begin{bmatrix}
+		                 0 \\ 0 \\ \vdots \\ 0
+										\end{bmatrix}
+\]
+が$K^n$において$\boldsymbol{0}$以外の解を持つことであるから，
+定理3.2.6により，そのためには係数行列の行列式が
+\[
+	\det ( \lambda E_n - A) = 0
+\]
+となることが必要十分である．
+
+$A = [a_{ij}]$とし，$t$を1つの変数として，次の行列式を
+$A$の\textbf{固有多項式}とよび，本書では$\Phi_A(t)$で表す：
+\[
+	\Phi_A(t) = \det (tE_n - A)
+  =
+  \begin{vmatrix}
+		t-a_{11} & -a_{12}  & \cdots    & -a_{1n}   \\
+		 -a_{21} & t-a_{12} & \ddots    & \vdots    \\
+		 \vdots  & \ddots   & \ddots    & -a_{n-1n} \\
+		 -a_{n1} & \cdots   & -a_{nn-1} & t -a_{nn}
+	\end{vmatrix}
+\]
+行列の形から，これは実際に$t$の$K$-係数の$n$次多項式であって，
+次のようにかける：
+\[
+	\Phi_A(t) =
+  t^n + c_1 t^{n-1} + c_2 t^{n-2} + \cdots + c_{n-2} t^2 + c_{n-1} t + c_n \quad (c_i \in K)
+\]
+特に$t^n$の係数が$1$であり，
+\begin{align*}
+	c_1 &= -(a_{11} + a_{22} + \cdots + a_{nn}) = -\text{tr }(A) \\
+  c_n &= (-1)^n |A|
+\end{align*}
+であることに注意しよう．
+\footnote{
+ 演習問題1-A 参照.
+}
+($\Phi_A (t)$の$t^n,t^{n-1}$の項は$\prod_{i=1}^n (t-a_{ii})$の$t^n,t^{n-1}$の
+項とそれぞれ一致している，$t-a_{22},t-a_{33}$を$-a_{23},-a_{32}$に置き換えることで
+$t^n$の次数は$t^{n-2}$に下がる，つまり$t^{n-1}$の次数を構成できない，$c_n$については$t=0$とおけばよい．）
+
+また，固有多項式を$0$とおいてできる$t$についての$n$次方程式$\Phi_A(t)=0$を
+$A$の\textbf{固有方程式}という．
+
+したがって，次のことがわかった．
+
+\命題{4.1.8}
+スカラー$\lambda \: ( \in K)$が$n$次行列$A$の固有値であるためには，$\lambda$が
+$A$の固有方程式の解であること（すなわち$\Phi_A (\lambda ) =0$）が必要十分である．
+
+（保留）
+
+さて，$K$の上の$n$次行列$A$の固有多項式の，複素数の範囲での解を，
+$A$の\textbf{特性解}と呼ぶことにしよう．
+
+（保留）
+
+\系{4.1.13}
+$K$の上の$n$次行列$A$が$K$の上で対角化可能であれば，
+$A$に相似な対角行列はその対角成分の順序を除いてただ1つである．
+また，この対角行列の$n$個の対角成分は，$A$の重複を含めた特性解の全体であり，
+すべて$A$の固有値である．
+
+\例{1.9}
+実2次行列$\displaystyle A = \begin{bmatrix}
+		                          \cos \theta & -\sin \theta \\
+		                          \sin \theta &  \cos \theta
+														\end{bmatrix}$
+($\theta$は$\pi$の整数倍でない実数)を考える．固有多項式は
+\[
+	\Phi_A(t) = \begin{bmatrix}
+		            t- \cos \theta & \sin \theta \\
+		            - \sin \theta & t- \cos \theta \\
+							\end{bmatrix}
+            = t^2 -2 (\cos \theta ) t + 1
+\]
+となり，$| \cos \theta < 1$であるから，実数の範囲では固有値は存在しない．
+したがって固有ベクトルも存在せず，$A$は$\R$の上では対角化可能でない
+($A$は角$\theta$の回転の行列であるから，このことは図形的にも当然である）．
+しかし複素数の範囲で考えると，固有多項式が
+\[
+	\Phi_A(t) = (t - e^{i \theta}) (t- e^{-i\theta})
+\]
+\footnote{
+付録1参照.
+\[
+  \cos \theta = \frac{(\cos \theta + i \sin \theta ) + (\cos \theta - i \sin \theta )}{2}
+              = \frac{e^{i\theta} + e^{-i \theta}}{2}
+\]
+}
+と分解され，2つの異なった特性解$e^{i\theta},e^{-i\theta}$があり，系4.1.7によって，
+$A$は$\C$の上では対角化可能である．系4.1.13から，適当な2次複素正則行列$P$によって，
+\[
+	P^{-1} A P = \begin{bmatrix}
+		              e^{i \theta} & 0 \\
+		              0            & e^{-i \theta} 
+								\end{bmatrix}
+\quad
+\text{または}
+\quad
+                \begin{bmatrix}
+		              e^{-i \theta} & 0 \\
+		              0             & e^{i \theta}
+								\end{bmatrix}
+\]
+となるはずであるが，この変換行列$P$を求めるには，固有ベクトルを計算する．
+固有値$e^{i \theta}$については，同次連立1次方程式
+\[
+	(e^{i \theta} E_2 - A ) \boldsymbol{x} = \boldsymbol{0}
+  \quad \text{すなわち}
+  \begin{bmatrix}
+		i \sin \theta &   \sin \theta \\
+		- \sin \theta & i \sin \theta
+	\end{bmatrix}
+  \begin{bmatrix}
+		x \\ y
+	\end{bmatrix}
+   =
+  \begin{bmatrix}
+		0 \\ 0
+	\end{bmatrix}
+\]
+を解いて（$\sin \theta \ne 0$に注意）,
+\[
+	\begin{bmatrix}
+		x \\ y
+	\end{bmatrix}
+  =
+  \gamma 
+	\begin{bmatrix}
+		i \\ 1
+	\end{bmatrix}
+  \quad \text{($\gamma$：任意の複素数)}
+\]
+固有値$e^{-i \theta}$についても同様に
+\[
+	(e^{-i \theta} E_2 - A ) \boldsymbol{x} = \boldsymbol{0}
+  \quad \text{すなわち}
+  \begin{bmatrix}
+		-i \sin \theta &   \sin \theta \\
+		- \sin \theta & -i \sin \theta
+	\end{bmatrix}
+  \begin{bmatrix}
+		x \\ y
+	\end{bmatrix}
+   =
+  \begin{bmatrix}
+		0 \\ 0
+	\end{bmatrix}
+\]
+から，
+\[
+	\begin{bmatrix}
+		x \\ y
+	\end{bmatrix}
+  =
+  \gamma'
+	\begin{bmatrix}
+		-i \\ 1
+	\end{bmatrix}
+  \quad \text{($\gamma'$：任意の複素数)}
+\]
+よって，たとえば，
+\begin{align*}
+	\boldsymbol{u}_1 = \begin{bmatrix}
+		                   i \\ 1
+										 \end{bmatrix},
+  \quad
+	\boldsymbol{u}_2 = \begin{bmatrix}
+		                   -i \\ 1
+										 \end{bmatrix} \\
+  P_1 &= \begin{bmatrix}
+		      i & -i \\
+		      1 & 1 \\
+				\end{bmatrix},
+  \quad
+  P_1^{-1} 
+      = \frac{1}{2i}
+        \begin{bmatrix}
+		      1  & i \\
+		      -1 & i \\
+				\end{bmatrix} \\
+  P_2 &= \begin{bmatrix}
+		      -i & i \\
+		      1 & 1 \\
+				\end{bmatrix},
+  \quad
+  P_1^{-1} 
+      = \frac{-1}{2i}
+        \begin{bmatrix}
+		      1  & -i \\
+		      -1 & -i \\
+				\end{bmatrix} \\
+	\boldsymbol{u}'_1 = \begin{bmatrix}
+		                   -1 \\ i
+										 \end{bmatrix},
+  \quad
+	\boldsymbol{u}'_2 = \begin{bmatrix}
+		                   1 \\ i
+										 \end{bmatrix} \\
+  P_3 &= \begin{bmatrix}
+		      -1 & 1 \\
+		      i & i \\
+				\end{bmatrix},
+  \quad
+  P_3^{-1} 
+      = \frac{-1}{2i}
+        \begin{bmatrix}
+		       i & -1 \\
+		      -i & -1 \\
+				\end{bmatrix} \\
+\end{align*}
+などが得られる．

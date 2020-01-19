@@ -1,0 +1,78 @@
+\subsection{逆行列}
+
+行列式の展開定理の応用として，正則行列の逆行列を
+与える公式を導く．
+$n$次正方行列$A = [a_{ij} ]$に対して，$A$の$(i,j)$
+余因子$\tilde{a}_{ij}$を$(j,i)$成分にもつ$n$次正方行列を
+$A$の\textbf{余因子行列}とよび，$\tilde{A}$で表す：
+\[
+	\tilde{A} = \begin{bmatrix}
+		            \tilde{a}_{11} & \tilde{a}_{21} & \cdots & \tilde{a}_{n1} \\
+		            \tilde{a}_{12} & \tilde{a}_{22} & \cdots & \tilde{a}_{n2} \\
+                \vdots         & \vdots         &        & \vdots         \\
+		            \tilde{a}_{1n} & \tilde{a}_{2n} & \cdots & \tilde{a}_{nn}
+							\end{bmatrix}
+            = [\tilde{a}_{ji}]
+            \quad
+            \begin{pmatrix}
+		           i \text{が行の番号} \\
+               j \text{が列の番号} \\
+            \end{pmatrix}
+\]
+この行列と$A$との積を作れば，定理2.3.1より
+\begin{align*}
+	\tilde{A} A \text{の$(i,k)$成分} 
+    &= \sum_{j=1}^n \tilde{a}_{ji} a_{jk} 
+          = \begin{cases}
+             \: |A| \quad &(i =k ) \\
+             \: 0   \quad &(i \ne k)
+            \end{cases} \\
+    A \tilde{A} \text{の$(i,k)$成分}
+    &= \sum_{j=1}^n a_{ij} \tilde{a}_{kj}
+          = \begin{cases}
+             \: |A| \quad &(i =k ) \\
+             \: 0   \quad &(i \ne k)
+            \end{cases} \\
+\end{align*}
+となるから，
+\[
+  \tilde{A}A = A \tilde{A}
+             = \begin{bmatrix}
+		               |A|    & 0      & \cdots & 0 \\
+		               0      & |A|    & \cdots & 0 \\
+		               \vdots & \ddots & \ddots & 0 \\
+		               0      & \cdots & 0      & |A|
+								\end{bmatrix}
+  = |A| \cdot E_n
+\]
+この式と系2.2.1より次の定理を得る．
+		
+\定理{2.3.2}
+正方行列$A$が正則であるには，$|A| \ne 0$であることが必要かつ
+十分条件であり，このとき，
+\[
+	A^{-1} =\frac{1}{|A|} \tilde{A}
+\]
+\証明
+この定理の必要性はすぐにわかる．すなわち$B=A^{-1}$とすると
+\[
+	AB=E,\quad BA=E
+\]
+である．これらの式の両辺の行列式をとると，
+\[
+ \det A \det B = 1, \quad \det B \det A=1
+\]
+（$\det E = 1$に注意）が得られる．ゆえに$\det A \ne 0$が得られる．
+
+\系{2.3.3}
+$n$次正方行列$A$が左逆行列$X$【右逆行列$Y$】をもつならば，
+$A$は正則で，$X=A^{-1}$【$Y=A^{-1}$】である．
+
+\証明
+$EX=E$ならば定理2.2.10から
+$|X| \cdot |A|=1$．よって$|A| \ ne 0$．
+したがって，定理2.3.2から，逆行列$A^{-1}$が存在するから，
+$(XA)A^{-1} = EA^{-1}$より，$X=A^{-1}$が得られる．
+
+右逆行列の場合も同様である．
+\■

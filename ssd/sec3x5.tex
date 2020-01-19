@@ -1,0 +1,67 @@
+\section{階数と基本変形の応用}
+
+\subsection{連立1次方程式の解法}
+さて，連立1次方程式を解くためのお膳立てがととのったので，
+解法について述べよう．
+
+連立1次方程式
+\begin{equation}
+	(E): \begin{cases}
+		     a_{11} x_1 + a_{12} x_ + \cdots + a_{1n} x_n = b_1 \\
+		     a_{21} x_1 + a_{22} x_ + \cdots + a_{2n} x_n = b_2 \\
+         \cdots
+		     a_{m1} x_1 + a_{m2} x_ + \cdots + a_{mn} x_n = b_m \\
+			 \end{cases}
+\end{equation}
+は，たてベクトルを用いて
+\[
+	(E_c):x_1 \boldsymbol{a}_1 + x_2 \boldsymbol{a}_2 + \cdots + x_n \boldsymbol{a}_n = \boldsymbol{b}
+\]
+と表せた．ただし，
+\[
+	\boldsymbol{a}_j = ^t[a_{1j} \: a_{2j} \: \cdots \: a_{mj}
+  \quad ( j=1,2, \cdots , n) \quad
+  \boldsymbol{b}=^t [b_1 \cdots b_m]
+\]
+このことより，$(E)$が解を持つには，ベクトル$\boldsymbol{b}$がベクトル系
+$\boldsymbol{a}_1, \boldsymbol{a}_2 , \cdots ,\boldsymbol{a}_n$
+の1次結合であることが，必要かつ十分である．そこで，$(E)$の係数行列
+$[a_{ij}$を$A$をかくと，命題3.4.7の(2)より次の命題を得る．
+
+\命題{3.5.1}
+連立1次方程式$(E)$が解を持つためには，
+\[
+	\rank A = \rank [ \:A \: \boldsymbol{b} \: ]
+\]
+であることが必要かつ十分である．
+
+ここで行列$[A \: \boldsymbol{b} ]$を連立方程式$(E)$の
+\textbf{拡大係数行列}とよび$\hat{A}$で表す．
+
+連立1次方程式$(E)$を解くためには，命題3.1.2から，
+$(E)$と同じ係数行列をもつ同次連立1次方程式
+\[
+	(H)\: : \: x_1 \boldsymbol{a}_1 +
+             x_2 \boldsymbol{a}_2 +
+             \cdots
+             x_n \boldsymbol{a}_n
+             = \boldsymbol{0}
+\]
+の解空間$W$を求める必要がある．この連立1次方程式$(H)$を
+連立1次方程式$(E)$の\textbf{同伴同次方程式}とよぶ．
+
+$(H)$の係数行列
+$\: [ \: \boldsymbol{a}_1 , \boldsymbol{a}_2, \cdots,\boldsymbol{a}_n\: ]\: $
+で表すと，命題3.3.3と命題3.4.6により適当な$m$次正則行列$P$と$n$次正則行列$Q$をとって，
+\[
+	PAQ = \begin{bmatrix}
+		       E_r & O \\
+           O   & O 
+				\end{bmatrix}
+       \quad (r=\rank A)
+\]
+と表すことができる．いま，$PAQ$を係数行列とする
+$(H)$とは別の同次連立方程式を
+
+（保留）
+

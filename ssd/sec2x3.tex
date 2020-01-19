@@ -1,0 +1,89 @@
+\section{行列式の展開とその応用}
+
+\subsection{行列式の展開定理}
+
+ここでは，高次の行列式をより低次の行列式で表すことを考える．
+以下$n \geqq 2$とする．
+
+$n$次正方行列$A = [a_{ij}]$において，
+$j$を固定して第$j$列に着目すると，系2.2.3より
+
+（中略）
+
+\定義{}
+$n$次行列$A$より第$i$行と第$j$列を除いてできる$n-1$次の行列を
+$A_{ij}$としたとき，$(-1)^{i+j} | A_{ij}|$を$A$の
+\textbf{$(i,j)$余因子},または成分$a_{ij}$の\textbf{余因子}
+とよび，$\tilde{a}_{ij}$で表す．
+
+このとき上式より
+\[
+  |A | = \sum_{i=1}^n a_{ij} \tilde{a}_{ij}
+      =  a_{1j} \tilde{a}_{ij}
+       + a_{2j} \tilde{a}_{2j}
+       + \cdots
+       + a_{nj}\tilde{a}_{nj}
+\]
+この式を$|A|$の\textbf{第$j$列についての展開式}という．
+
+行列$A$の第$k$列を第$j$列でおきかれた行列を$A'$とすると
+(第$j$列はそのままにしておく．ただし$k \ne j$，系2.2.7より，
+$|A'|=0$．ところで$A'$の$(i,k)$成分は$a_{ij}$であり，
+また$A'$の$(i,k)$の余因子は$A$の$A$の$(i,k)$余因子$\tilde{a}_{ik}$
+に等しい（$j$列は保存されている）から，
+$A'$の第$k$列についての展開式をとれば，
+\begin{align*}
+	0 = |A'| = \sum_{i=1}^n a_{ij}
+           =   a_{1j} \tilde{a}_{1j}
+             + a_{2j} \tilde{a}_{2k}
+             + \cdots
+             + a_{nj} \tilde{a}_{nk}
+\end{align*}
+行列$A$の転置行列$^tA$の第$i$列についての展開を考えると，
+定理2.2.1より$|^t A|= |A|$および$| (^t A)_{ji}| = |A_{ij}|$であることから，
+\[
+	|A| = \sum_{j=1}^n a_{ij} \tilde{a}_{ij}
+      =   a_{i1} \tilde{a}_{i1}
+        + a_{i2} \tilde{a}_{i2}
+        + \cdots
+        + a_{in} \tilde{a}_{in}
+\]
+この式を$|A|$の\textbf{第$i$行についての展開式}という．
+
+また，列の場合と同様に，$k \ne i$なる番号$k,i$について，
+\[
+	\sum_{j=1}^n   a_{ij} \tilde{a}_{kj}
+               = a_{i1} \tilde{a}_{k1}
+               + a_{i2} \tilde{a}_{k2}
+               + \cdots
+               + a_{in} \tilde{a}_{kn}
+\]
+以上をまとめて，次の定理を得る．
+
+\定理{2.3.1}
+（行列式の展開）
+$n$次正方行列$A=[a_{ij}]$に対して，
+\begin{list}{}{}
+\item	(1) 列番号$j,k$について
+\[
+	  a_{1j}\tilde{a}_{1k} 
+  + a_{2j}\tilde{a}_{2k} 
+  + \cdots
+  + a_{nj}\tilde{a}_{nk}
+  =\begin{cases}
+		  \: |A| &\quad (j =   k) \\
+      \: 0   &\quad (j \ne k)
+		\end{cases}
+\]
+\item	(2) 行番号$i,k$について
+\[
+	  a_{i1}\tilde{a}_{k1} 
+  + a_{i2}\tilde{a}_{k2} 
+  + \cdots
+  + a_{n}\tilde{a}_{nk}
+  =\begin{cases}
+		  \: |A| &\quad (i =   k) \\
+      \: 0   &\quad (i \ne k)
+		\end{cases}
+\]
+\end{list}

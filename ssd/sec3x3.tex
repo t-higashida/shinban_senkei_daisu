@@ -1,0 +1,237 @@
+\section{基本変形}
+
+\定義{}
+$(m,n)$型の行列$A$に対して，次の3種の操作を
+\textbf{行基本変形【列基本変形】}という．
+\begin{list}{}{}
+  \item (1) $A$の2つの行【列】を入れ替える
+  \item (2) $A$のある行ベクトル【列ベクトル】に$0$でないスカラーをかける
+  \item (3) $A$のある行ベクトル【列ベクトル】に別の行ベクトル【列ベクトル】の
+スカラー倍を加える
+\end{list}
+行基本変形と列基本変形をあわせて，単に\textbf{基本変形}という．
+
+\注意{}
+基本変形(1)は実際は(2),(3)の方の変形を適当に組み合わせることによって
+行うことができる．また(1)を繰り返すことにより，$A$の$m$個の行
+【$n$個の列】を任意の順序に並べ替えることができる．
+
+簡単のため，上の各種の基本変形を，本書では次のような記号で示すこと
+にする：
+
+（保留）
+
+基本変形が，特別な正則行列をかけることと同じでることを示そう．
+
+$n$次単位行列$E_n$に1回の基本変形を施した行列を$n$次の
+\textbf{基本行列}という．すなわち，次の3種類の行列である．
+\footnote{
+$U_n(i,j)$などの記号は本書で用いるもので，一般に定まった記号ではない．
+}
+
+(1) $E_n$の第$i$行と第$j$列を入れ替えた行列（この場合，第$i$列と第$j$列
+を入れかれたもも同じものになる）を$U_n(i,j)$で示す：
+\[
+	U_n(i,j)
+  =
+  \begin{bmatrix}
+    E_{i-1} &        &   &        &   &        &           \\
+            & 0      & 0 & \cdots & 0 & 1      &           \\
+            & 0      & 1 &        &   & 0      &           \\
+            & \vdots &   & \ddots &   & \vdots &           \\
+            & 0      &   &        & 1 & 0      &           \\
+            & 1      & 0 & \cdots & 0 & 0      &           \\
+            &        &   &        &   &        & E_{n-j+1} \\
+	\end{bmatrix}
+  \footnote{
+    \text{空白の部分の成分は$0$とする．以下同じ}
+  }
+\]
+$U_n(i,j)^2 = E_n$であるから，$U_n(i,j)$は正則で，
+$U_n(i,j)^{-1} = U_n(i,j)$.
+
+(2) $E_n$の第$i$行に$0$でないスカラー$\lambda$をかけた行列
+ (第$i$列に$\lambda$をかけても同じ) を$V_n(i;\lambda)$で示す：
+\[
+	V_n(i,j)
+  =
+  \begin{bmatrix}
+    E_{i-2} &   &         &        &           \\
+            & 1 &         &        &           \\
+            &   & \lambda &        &           \\
+            &   &         & 1      &           \\
+            &   &         &        & E_{n-i-1} \\
+	\end{bmatrix}
+  \quad\quad
+  \begin{pmatrix}
+		1 \leqq i \leqq n \\
+    \lambda \in K \\
+    \lambda \ne 0
+	\end{pmatrix}
+\]
+これは対角行列であり，$(i,j)$成分の$\lambda$の代わりに
+$\displaystyle \frac{1}{\lambda}$をおいた行列が
+その逆行列になる：
+\[
+  V_n (i;\lambda)^{-1} = V_n \left( i ;\displaystyle \frac{1}{\lambda}
+                             \right)
+\]
+
+(3) $E_n$の第$i$行ベクトルに第$j$行ベクトルの$\alpha$倍
+($\alpha$はスカラー)を加えた行列 (第$j$列ベクトルに第$i$ベクトルに
+$\alpha$を加えても同じ）を，$W_n(i,j ; \alpha)$で示す
+ ( ここでは$i < j$とするが，$ i > j$のとき$(i , j)$成分の
+$\alpha$は対角線の左下にくる) ： 
+\[
+	W_n(i,j;\alpha)
+  =
+  \begin{bmatrix}
+    E_{i-1} &   &   &        &   &        & \\
+            & 1 & 0 & \cdots & 0 & \alpha & \\
+            &   & 1 &        &   & 0      & \\
+            &   &   & \ddots &   & \vdots & \\
+            &   &   &        & 1 & 0      & \\
+            &   &   &        &   & 1      & \\
+            &   &   &        &   &        & E_{n-i-1}
+	\end{bmatrix}
+  \quad\quad
+  \begin{pmatrix}
+    \alpha \in K \\
+    1 \leqq i,j \leqq n \\
+    i \ne j
+	\end{pmatrix}
+\]
+この行列の$\alpha$の位置に$-\alpha$をおいた行列を考えると，
+これも正則行列で，$W_n(i,j;\alpha)^{=1}=W_n(i,j;-alpha)$となる．
+
+また，以上の基本行列の転置行列はそれぞれ
+\begin{align*}
+	&^t U_n(i,j)       = U_n(i,j) \\
+  &^t V_n(i;\lambda) = V_n(i;\lambda) \\
+  &^t W_n(i,j;\alpha) = W_n(j,i;\alpha)
+\end{align*}
+となり，これらは基本行列である．
+
+以上のことをまとめて：
+
+\命題{3.3.1} 基本行列は正則であって，その逆行列および転置行列も
+基本行列である．
+
+さて$(m,n)$行列$A$にある行【列】基本変形を施すには，
+それと同じ行【列】基本変形を$m$次単位行列$E_m$【$n$次単位行列$E_n$】
+に施して得られる$m$次【$n$次基本行列を，$A$に左【右】からかければよい．
+すなわち，次の子とがいえる．
+
+(1) $U_m(i,j)\cdot A$【$A \cdot U_n(i,j)$】は
+$A$の第$i$行と第$j$行【第$i$列と第$j$列】を入れ替えた行列になる
+$(i < j)$.
+
+(2) $V_m (i;\lambda) \cdot A$【$A \cdot V_n(i; \lambda)$】は
+$A$の第$i$行【第$i$列】を$\lambda$倍した行列になる
+$(\lambda \ne 0)$.
+
+(3) $W_m (i,j; \alpha) \cdot A$【$ A \dot W_n (i,j ; \lambda)$】
+は$A$の第$i$行に第$j$行の$\alpha$倍を加えた【第$j$列に第$i$列の$\alpha$倍を
+加えた】行列になる$(i \ne j)$.
+
+\例{3.2}
+$A = \begin{bmatrix}
+		  a  & b  & c  & d   \\
+      a' & b' & c' & d'  \\
+      a'' & b'' & c'' & d''
+		 \end{bmatrix}
+$に対し，
+\begin{align*}
+	A 
+    &\stackrel{R_1 \leftrightarrow R_3}{\longrightarrow}
+  U_3(1,3) \cdot A = \begin{bmatrix}
+		                   0 & 0 & 1 \\
+                       0 & 1 & 0 \\
+                       1 & 0 & 0
+										 \end{bmatrix} A
+                   = \begin{bmatrix}
+                       a'' & b'' & c'' & d'' \\
+		                   a  & b  & c  & d   \\
+                       a' & b' & c' & d'
+		                 \end{bmatrix} \\
+	A 
+    &\stackrel{R_2 \times \lambda}{\longrightarrow}
+  V_3(2;\lambda) \cdot A = \begin{bmatrix}
+		                   1 & 0 & 0 \\
+                       0 & \lambda & 0 \\
+                       0 & 0 & 1
+										 \end{bmatrix} A
+                   = \begin{bmatrix}
+		                   a  & b  & c  & d   \\
+                       \lambda a' & \lambda b' & \lambda c' & \lambda d' \\
+                       a'' & b'' & c'' & d''
+		                 \end{bmatrix}
+                   \quad ( \lambda \ne 0) \\
+	A 
+    &\stackrel{R_1 \leftarrow \alpha R_3}{\longrightarrow}
+  W_3(1,3;\alpha) \cdot A = 
+                     \begin{bmatrix}
+		                   1 & 0 & \alpha \\
+                       0 & 1 & 0 \\
+                       0 & 0 & 1
+										 \end{bmatrix} A
+                   = \begin{bmatrix}
+		                   a+ \alpha a''  & b +\alpha b'' & c +\alpha c'' & d +\alpha d''  \\
+                       \lambda a' & \lambda b' & \lambda c' & \lambda d' \\
+                       a'' & b'' & c'' & d''
+		                 \end{bmatrix} \\
+	A 
+    &\stackrel{C_2 \leftarrow \alpha C_3}{\longrightarrow}
+  A \cdot W_4(3,2;\alpha) =
+                     A  
+                     \begin{bmatrix}
+		                   1 & 0 & 0 & 0 \\
+                       0 & 1 & 0 & 0 \\
+                       0 & \alpha & 1 & 0 \\
+                       0 & 0 & 0 & 1
+										 \end{bmatrix}
+                   = \begin{bmatrix}
+		                   a & b +\alpha c & c & d \\
+                       a' & b' + \alpha c' & c' & d' \\
+                       a'' & b'' +\alpha c'' & c'' & d''
+		                 \end{bmatrix} \\
+\end{align*}
+これで次のことがわかった．
+
+\命題{3.3.2} 
+$(m,n)$行列$A$に対する行【列】基本変形は，$A$に左【右】
+から対応する$m$次【$n$次】基本行列をかけることと同じである．
+\■
+
+\問{3.2}
+問3.1の基本変形に対応する基本行列をかけ．
+
+（保留）
+
+なお，どの基本変形についても，その逆の変形（もとの行列へ戻す手続き）
+がまた基本変形であることに注意しよう．これは対応する基本行列の
+逆行列を考えてもわかる．
+
+$(m,n)$行列$A$に何回かの(行および列)基本変形を繰り返して
+行列$B$が得られたとすれば，命題3.3.2によって
+\[
+	B=PAQ, \quad P=P_S \cdots P_2 P_1, \quad Q=Q_1 Q_2 \cdots Q_t
+\]
+となり，逆に$B$から基本変形の繰り返しで$A$が得られることもわかる．
+
+とくに$A$が$n$次正則行列であれば，$A$に基本変形を繰り返して施した行列も
+正則である．
+
+\命題{3.3.3}
+行列$A$に基本変形を有限回続けて行って，$A$を次の形の行列に変形できる．
+\[
+	\begin{bmatrix}
+		E_r & O \\
+    O   & O
+	\end{bmatrix}
+  \quad \text{(ただし，$E_r$は$r$次の単位行列)}
+\]
+
+\証明
+
+（保留）

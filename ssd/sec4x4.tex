@@ -1,0 +1,39 @@
+\section{正則行列}
+
+\subsection{正規行列の対角化}
+
+（保留）
+
+
+\subsection{エルミート行列,実対称行列の対角化}
+
+\定義{}
+$n$次複素行列$ A = [ a_{ij} ] $が
+\[
+	 A = A^{*}
+\]
+をみたすとき，$A$を\textbf{エルミート行列}という．
+
+上の条件を成分を用いてかくと
+\[
+	a_{ij} = \overline{a_{ji}} \quad (i,j = 1,2,\cdots,n)
+\]
+となるから，とくに
+\[
+	a_{ii} = \overline{a_{ii}} \quad (i = 1,2,\cdots,n)
+\]
+したがってエルミート行列の対角成分はすべて実数である．
+とくに$A$が実行列であれば，$A^* = \tr{A} $だから，上の条件は$A = \tr{A}$となり，
+実エルミート行列とは実対称行列に他ならない．
+
+（保留）
+
+\定理{4.4.6}
+$K$の上の$n$次正方行列$A$について，次の3つの条件は互いに同値である：
+\begin{list}{}{}
+	\item	(ⅰ) $A$はエルミート行列である．
+	\item (ⅱ) 任意の2つのベクトル$\boldsymbol{x}, \boldsymbol{y} \in K^n$に対して，
+$(A \boldsymbol{x} \cdot \boldsymbol{y}) = ( \boldsymbol{x} \cdot A \boldsymbol{y})$.
+	\item (ⅲ) $A$は正規行列で，$A$の特性解はすべて実数である．
+	\item (ⅳ) $K$の上の$n$次ユニタリ行列$U$があって，$U^{-1} A U = U^* A U $が実対角行列となる．
+\end{list}

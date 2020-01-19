@@ -1,0 +1,131 @@
+\section{2次形式の標準形}
+
+この節では，$K=\R$とする．
+
+$n$個の変数$x_1,x_2, \cdots , x_n$の実係数の2次同次式
+\footnote{
+すなわち，2次野単項式ばかりの和である多項式．
+}
+を$x_1,x_2, \cdots , x_n$の\textbf{実2次形式}(以下では単に\textbf{2次形式})
+と呼ぶ．
+
+たとえば，2変数$x,y$または3変数$x,y,z$の2次形式は，それぞれ次のような多項式
+である：
+\begin{align*}
+	F(x,y)   &= ax^2 + b x y + c y^2 \quad (a,b,c \in \R) \\
+  F(x,y,z) &= ax^2 + by^2 + cz^2 + pxy+ qxz +ryz \quad (a,b,c,p,q,r \in \R)
+\end{align*}
+これらは行列の積を用いて，それぞれ
+\begin{align*}
+	F(x,y)   & =\begin{bmatrix}
+		           x & y
+						  \end{bmatrix}
+              \begin{bmatrix}
+	             a & \displaystyle\frac{b}{2} \\
+               \displaystyle \frac{b}{2} & c
+						  \end{bmatrix}
+              \begin{bmatrix}
+		           x \\
+               y
+						  \end{bmatrix} \\
+  F(x,y,z) & =\begin{bmatrix}
+		            x  & y & z 
+							\end{bmatrix}
+              \begin{bmatrix}
+		            a & \displaystyle \frac{p}{2} & \displaystyle \frac{q}{2} \\
+                                             &                            \\
+                \displaystyle \frac{p}{2} & b & \displaystyle \frac{r}{2} \\
+                  &                                                       \\
+                \displaystyle \frac{q}{2} & \displaystyle \frac{r}{2} & c
+							\end{bmatrix}
+\end{align*}
+と表すことができる．
+
+\問{4}
+
+次の斉次二次式を行列を用いて書き表せ．
+
+(1) $ 4 x^2 - 4xy -y^2$
+
+\解
+\[
+	\text{(与式)} = \begin{bmatrix}
+		               x & y
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               a & b \\
+                   b & c
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               x & y
+									\end{bmatrix}
+                = ax^2 + bxy + bxy + cy^2
+\]
+とすると，
+$a=4,b=-2,d=-1$，したがって
+\[
+	\begin{bmatrix}
+		               x & y
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               4 & -2 \\
+                   -2 & 1
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               x & y
+									\end{bmatrix}
+\]
+(2) $x^2 + y^2 + z^2 + xy + yz + zx$
+
+\解
+\begin{align*}
+	\text{(与式)} &= \begin{bmatrix}
+		               x & y & z
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               a & b & c \\
+                   b & d & e \\
+                   c & e & f
+									\end{bmatrix}
+                  \begin{bmatrix}
+		               x & y & z
+									\end{bmatrix} \\
+                & = a x^2 + b xy + c zx + b xy + d y^2 + eyz + czx + eyz + fz^2 \\
+                & = a x^2 + d y^2 + f z^2 + 2b xy + 2e yz + 2czx	
+\end{align*}
+とすると，
+$\displaystyle a=1,b=\frac{1}{2}, c= \frac{1}{2}, d=1 , e= \frac{1}{2}, f=1$，
+したがって
+\[
+	\begin{bmatrix}
+     x & y & z 
+  \end{bmatrix}
+  \begin{bmatrix}
+    4 & \displaystyle \frac{1}{2} & \displaystyle \frac{1}{2} \\
+      & \\
+    \displaystyle \frac{1}{2} & 1           &  \displaystyle  \frac{1}{2} \\
+      & \\
+    \displaystyle \frac{1}{2} &  \displaystyle \frac{1}{2} & 1
+  \end{bmatrix}
+  \begin{bmatrix}
+	   x & y & z
+	\end{bmatrix}
+\]
+\■
+般に$n$変数$x_1 , x_2 , \cdots , x_n$の2次形式は
+\[
+	F(x_1, x_2 ,\cdots, x_n)= \sum_{i=1}^n a_i x_i^2 + \sum_{1 \leq i < j < n} a_{ij}' x_ix_j \quad (a_i, a_{ij}' \in \R)
+\]
+とかれるが，これに対して，$a_{ii}, a_{ij}, a_{ji}$を
+\[
+	\begin{cases}
+		\displaystyle a_{ii} = a_i \quad (i=1,2, \cdots , n) \\
+    \displaystyle a_{ij} = a_{ij} = a_{ji} = \frac{a_{ij}'}{2} \quad (1 \leqq i < j \leqq n)
+	\end{cases}
+\]
+と決めると，次のように書きなおすことができる：
+\[
+	F(x_1 , x_2 , \cdots , x_n) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_ix_j
+\]
+このとき，
+（保留）
